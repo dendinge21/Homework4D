@@ -9,8 +9,18 @@ public class CosmicWimpoutState {
      * current state of dice (create a dice class?)
      *
      */
+    private int currentScorePlayer1;
+    private int currentScorePlayer2;
+    private int currentScorePlayer3;
 
-    //implement a constructor that initializes all the variables
+    public CosmicWimpoutState(int currentScore1, int currentScore2, int currentScore3){
+        currentScorePlayer1 = currentScore1;
+        currentScorePlayer2 = currentScore2;
+        currentScorePlayer3 = currentScore3;
+
+        //finish once more instance variables
+
+    }
 
     //implement a deep copy
 
