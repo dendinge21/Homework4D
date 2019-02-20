@@ -16,11 +16,14 @@ public class CosmicWimpoutState {
     private int currentScorePlayer2;
     private int currentScorePlayer3;
 
-    public CosmicWimpoutState(int currentScore1, int currentScore2, int currentScore3){
+    private int whoseTurn;
+
+    public CosmicWimpoutState(int currentScore1, int currentScore2, int currentScore3, int playerTurn){
         currentScorePlayer1 = currentScore1;
         currentScorePlayer2 = currentScore2;
         currentScorePlayer3 = currentScore3;
 
+        whoseTurn = playerTurn;
         //finish once more instance variables
 
     }
@@ -30,6 +33,8 @@ public class CosmicWimpoutState {
         currentScorePlayer1 = orig.currentScorePlayer1;
         currentScorePlayer2 = orig.currentScorePlayer2;
         currentScorePlayer3 = orig.currentScorePlayer3;
+
+        whoseTurn = orig.whoseTurn;
     }
 
     /**
