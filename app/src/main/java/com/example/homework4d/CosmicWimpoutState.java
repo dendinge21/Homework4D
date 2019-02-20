@@ -4,11 +4,14 @@ public class CosmicWimpoutState {
     //instance variables that should encompass all the information
     /**
      * IDEAS
-     * Whose turn it is? (player)
+     * Whose turn it is? (int?)
      * Current score of each player (int)
      * current state of dice (create a dice class?)
      *
      */
+    // to satisfy Serializable interface
+    private static final long serialVersionUID = 12345678910L;
+
     private int currentScorePlayer1;
     private int currentScorePlayer2;
     private int currentScorePlayer3;
@@ -23,6 +26,11 @@ public class CosmicWimpoutState {
     }
 
     //implement a deep copy
+    public CosmicWimpoutState(CosmicWimpoutState orig){
+        currentScorePlayer1 = orig.currentScorePlayer1;
+        currentScorePlayer2 = orig.currentScorePlayer2;
+        currentScorePlayer3 = orig.currentScorePlayer3;
+    }
 
     /**
     *toString(); describes the state of a game as a string, prints all the values
