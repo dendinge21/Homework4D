@@ -6,7 +6,7 @@ public class CosmicWimpoutState {
      * IDEAS
      * Whose turn it is? (int?)
      * Current score of each player (int)
-     * current state of dice (create a dice class?)
+     * current state of dice (create a dice class?) // that has a different int for every face?
      *
      */
     // to satisfy Serializable interface
