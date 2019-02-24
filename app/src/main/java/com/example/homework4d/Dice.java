@@ -4,8 +4,8 @@ import java.lang.Math;
 
 public class Dice {
 
-    private int diceState;
-    private int diceID;
+    protected int diceState;
+    protected int diceID;
 
 
     public Dice(int ID){
@@ -20,10 +20,11 @@ public class Dice {
     public int getDiceState(){
         return diceState;
     }
-    public void setDiceID(int newid{
+    public void setDiceID(int newid){
         this.diceID = newid;
 
     }
+
 
 
 }
