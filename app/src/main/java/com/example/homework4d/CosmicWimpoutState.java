@@ -27,10 +27,10 @@ public class CosmicWimpoutState {
     private Dice diceNumThree = new Dice(3);
     private Dice diceNumFour = new Dice(4);
     private Dice diceNumFive = new Dice(5);
-
     private Dice diceArray[] = new Dice[5];
 
     public CosmicWimpoutState(){
+        whoseTurn = 1;
         currentScorePlayer1 = 0;
         currentScorePlayer2 = 0;
         currentScorePlayer3 = 0;
@@ -39,9 +39,6 @@ public class CosmicWimpoutState {
         diceArray[2] = diceNumThree;
         diceArray[3] = diceNumFour;
         diceArray[4] = diceNumFive;
-
-        whoseTurn = 1;
-
         for(int i = 0; i < diceArray.length; i++){
             diceArray[i].diceID = i+1;
             diceArray[i].diceState = 0;
@@ -102,7 +99,6 @@ public class CosmicWimpoutState {
             diceArray[2].diceState = (int)(Math.random()*6);
             diceArray[3].diceState = (int)(Math.random()*6);
             diceArray[4].diceState = (int)(Math.random()*6);
-
             return true;
         }
         else{
