@@ -106,7 +106,7 @@ public class CosmicWimpoutState {
             diceNumThree.diceState = rand2 = (int)(Math.random()*6);
             diceNumFour.diceState = rand3 = (int)(Math.random()*6);
             diceNumFive.diceState = rand4 = (int)(Math.random()*6);
-            
+
             return true;
         }
         else{
@@ -147,9 +147,23 @@ public class CosmicWimpoutState {
             return false;
         }
     }
-    public boolean ReRollDice(int playerId, int diceId){
+    public boolean ReRollDice(int playerId, int id ){
         if(playerId == whoseTurn) {
-
+            if(id == 1) {
+                diceNumOne.rollMe();
+            }
+            else if(id ==2){
+                diceNumTwo.rollMe();
+            }
+            else if(id==3){
+                diceNumThree.rollMe();
+            }
+            else if(id ==4){
+                diceNumFour.rollMe();
+            }
+            else if(id == 5){
+                diceNumFive.rollMe();
+            }
             return true;
         }
         else{
