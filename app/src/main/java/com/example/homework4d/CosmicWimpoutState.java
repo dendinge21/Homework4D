@@ -77,9 +77,10 @@ public class CosmicWimpoutState {
     */
     @Override
     public String toString() {
-        return currentScorePlayer1 + "" + currentScorePlayer2 + "" + currentScorePlayer3 +
-                "" + whoseTurn + "" + diceNumOne + "" + diceNumTwo + "" + diceNumThree +
-                "" + diceNumFour + "" + diceNumFive;
+        return "Player1 Score: " + currentScorePlayer1 + "Player2 Score: " + currentScorePlayer2 +
+                "Player3 Score: " + currentScorePlayer3 + "Player Turn: " + whoseTurn + "Number of players: " +
+                numPlayers + "Dice 1: " + diceNumOne + "Dice 2: " + diceNumTwo + "Dice 3: " + diceNumThree +
+                "Dice 4: " + diceNumFour + "Dice 5: " + diceNumFive;
     }
 
     /**
