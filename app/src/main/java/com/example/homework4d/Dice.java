@@ -20,6 +20,10 @@ public class Dice {
 
     }
 
+    public void rollMe(){
+        this.diceState = (int)(Math.random()*6);
+    }
+
 
 
 }

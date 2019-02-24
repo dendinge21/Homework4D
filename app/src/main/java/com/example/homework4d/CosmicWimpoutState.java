@@ -69,7 +69,6 @@ public class CosmicWimpoutState {
         diceNumFive.diceState = orig.diceNumFive.diceState;
         diceNumFive.diceID = orig.diceNumFive.diceID;
 
-
     }
 
     /**
