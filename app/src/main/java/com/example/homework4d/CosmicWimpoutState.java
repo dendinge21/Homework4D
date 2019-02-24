@@ -28,7 +28,7 @@ public class CosmicWimpoutState {
     private Dice diceNumFour = new Dice(4);
     private Dice diceNumFive = new Dice(5);
 
-    private Dice diceArray[] = new Dice[];
+    private Dice diceArray[] = new Dice[5];
 
     public CosmicWimpoutState(){
         currentScorePlayer1 = 0;
@@ -149,21 +149,7 @@ public class CosmicWimpoutState {
     }
     public boolean ReRollDice(int playerId, int id ){
         if(playerId == whoseTurn) {
-            if(id == 1) {
-                diceNumOne.rollMe();
-            }
-            else if(id ==2){
-                diceNumTwo.rollMe();
-            }
-            else if(id==3){
-                diceNumThree.rollMe();
-            }
-            else if(id ==4){
-                diceNumFour.rollMe();
-            }
-            else if(id == 5){
-                diceNumFive.rollMe();
-            }
+            diceArray[id-1].rollMe();
             return true;
         }
         else{
