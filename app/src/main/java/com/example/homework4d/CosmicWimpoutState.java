@@ -95,7 +95,6 @@ public class CosmicWimpoutState {
      */
 
     public boolean RollDice(int playerId){
-        int rand0, rand1, rand2, rand3, rand4;
         if(playerId == whoseTurn) {
             //rolls all dice
             diceArray[0].diceState = (int)(Math.random()*6);
