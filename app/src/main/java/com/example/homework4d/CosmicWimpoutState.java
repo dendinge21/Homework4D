@@ -76,6 +76,12 @@ public class CosmicWimpoutState {
     *toString(); describes the state of a game as a string, prints all the values
      * of all the variables; add @Override tag
     */
+    @Override
+    public String toString() {
+        return currentScorePlayer1 + "" + currentScorePlayer2 + "" + currentScorePlayer3 +
+                "" + whoseTurn + "" + diceNumOne + "" + diceNumTwo + "" + diceNumThree +
+                "" + diceNumFour + "" + diceNumFive;
+    }
 
     /**
      add methods for each of the actions - each should have a boolean return value;
