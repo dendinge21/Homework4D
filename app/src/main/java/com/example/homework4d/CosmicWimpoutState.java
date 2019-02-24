@@ -36,7 +36,16 @@ public class CosmicWimpoutState {
         whoseTurn = playerTurn;
 
         diceNumOne.diceState = numOne.diceState;
-        
+        diceNumOne.diceID = numOne.diceID;
+        diceNumTwo.diceState = numTwo.diceState;
+        diceNumTwo.diceID = numTwo.diceID;
+        diceNumThree.diceState = numThree.diceState;
+        diceNumThree.diceID = numThree.diceID;
+        diceNumFour.diceState = numFour.diceState;
+        diceNumFour.diceID = numFour.diceID;
+        diceNumFive.diceState = numFive.diceState;
+        diceNumFive.diceID = numFive.diceID;
+
         //finish once more instance variables
 
     }

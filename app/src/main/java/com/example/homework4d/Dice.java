@@ -10,12 +10,8 @@ public class Dice {
 
     public Dice(int ID){
         this.diceID = ID;
+        diceState = 1;
     }
-
-    public void rollMe(){
-        this.diceState = (int)(Math.random()*6);
-    }
-
 
     public int getDiceState(){
         return diceState;
