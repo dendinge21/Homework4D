@@ -58,6 +58,7 @@ public class CosmicWimpoutState {
         currentScorePlayer3 = orig.currentScorePlayer3;
 
         whoseTurn = orig.whoseTurn;
+
         Dice copyArray[] = new Dice[5];
         for(int i =0; i < diceArray.length; i++){
             copyArray[i] = new Dice(i+1);
