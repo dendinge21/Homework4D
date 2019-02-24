@@ -28,6 +28,7 @@ public class CosmicWimpoutState {
     private Dice diceNumFour = new Dice(4);
     private Dice diceNumFive = new Dice(5);
     private Dice diceArray[] = new Dice[5];
+    private String faceName;
 
     public CosmicWimpoutState(){
         whoseTurn = 1;
@@ -55,6 +56,7 @@ public class CosmicWimpoutState {
         currentScorePlayer3 = orig.currentScorePlayer3;
 
         whoseTurn = orig.whoseTurn;
+
         Dice copyArray[] = new Dice[5];
         for(int i =0; i < diceArray.length; i++){
             copyArray[i] = new Dice(i+1);
@@ -69,6 +71,7 @@ public class CosmicWimpoutState {
     *toString(); describes the state of a game as a string, prints all the values
      * of all the variables; add @Override tag
     */
+
     @Override
     public String toString() {
         return "Player1 Score: " + currentScorePlayer1 + "Player2 Score: " + currentScorePlayer2 +
@@ -121,15 +124,15 @@ public class CosmicWimpoutState {
     public boolean EndTurn(int playerId) {
         if(playerId == whoseTurn) {
             if(playerId == 1){
-                //add points
+                //add points?
                 whoseTurn = 2;
             }
             else if(playerId == 2){
-                //add points
+                //add points?
                 whoseTurn = 3;
             }
             else if(playerId == 3){
-                //add points
+                //add points?
                 whoseTurn = 1;
             }
             return true;
@@ -150,5 +153,47 @@ public class CosmicWimpoutState {
         }
     }
 
+    public String setFaces(int id){
+        if(id == 5){
+            if(diceArray[id].diceState == 1){
+                faceName = "ten";
+            }
+            else if(diceArray[id].diceState == 2){
+                faceName = "half moons";
+            }
+            else if(diceArray[id].diceState == 3){
+                faceName = "flaming sun";
+            }
+            else if(diceArray[id].diceState == 4){
+                faceName = "bolts";
+            }
+            else if(diceArray[id].diceState == 5){
+                faceName = "five";
+            }
+            else if(diceArray[id].diceState == 6){
+                faceName = "stars";
+            }
+            return faceName;
+        }
+        if(diceArray[id].diceState == 1){
+            faceName = "ten";
+        }
+        else if(diceArray[id].diceState == 2){
+            faceName = "half moons";
+        }
+        else if(diceArray[id].diceState == 3){
+            faceName = "triangles";
+        }
+        else if(diceArray[id].diceState == 4){
+            faceName = "bolts";
+        }
+        else if(diceArray[id].diceState == 5){
+            faceName = "five";
+        }
+        else if(diceArray[id].diceState == 6){
+            faceName = "stars";
+        }
+        return faceName;
+    }
 
 }

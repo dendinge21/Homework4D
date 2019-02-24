@@ -29,6 +29,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         CosmicWimpoutState secondInstance = new CosmicWimpoutState(firstInstance);
         //call methods on first instance
         //edit the multi line text (append method)
+        CosmicWimpoutState thirdInstance = new CosmicWimpoutState();
+        CosmicWimpoutState fourthInstance = new CosmicWimpoutState(thirdInstance);
 
 
 
