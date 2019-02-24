@@ -58,17 +58,13 @@ public class CosmicWimpoutState {
         currentScorePlayer3 = orig.currentScorePlayer3;
 
         whoseTurn = orig.whoseTurn;
+        Dice copyArray[] = new Dice[5];
+        for(int i =0; i < diceArray.length; i++){
+            copyArray[i] = new Dice(i+1);
+            copyArray[i].diceID = orig.diceArray[i].diceID;
+            copyArray[i].diceState = orig.diceArray[i].diceState;
+        }
 
-        diceNumOne.diceState = orig.diceNumOne.diceState;
-        diceNumOne.diceID = orig.diceNumOne.diceID;
-        diceNumTwo.diceState = orig.diceNumTwo.diceState;
-        diceNumTwo.diceID = orig.diceNumTwo.diceID;
-        diceNumThree.diceState = orig.diceNumThree.diceState;
-        diceNumThree.diceID = orig.diceNumThree.diceID;
-        diceNumFour.diceState = orig.diceNumFour.diceState;
-        diceNumFour.diceID = orig.diceNumFour.diceID;
-        diceNumFive.diceState = orig.diceNumFive.diceState;
-        diceNumFive.diceID = orig.diceNumFive.diceID;
 
     }
 
