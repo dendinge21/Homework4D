@@ -8,15 +8,22 @@ public class Dice {
     private int diceID;
 
 
-    public Dice(int newID){
-        this.diceID = newID;
+    public Dice(int ID){
+        this.diceID = ID;
     }
 
     public void rollMe(){
         this.diceState = (int)(Math.random()*6);
     }
+
+
     public int getDiceState(){
         return diceState;
     }
+    public void setDiceID(int newid{
+        this.diceID = newid;
+
+    }
+
 
 }
