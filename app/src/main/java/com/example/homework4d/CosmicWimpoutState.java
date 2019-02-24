@@ -97,7 +97,6 @@ public class CosmicWimpoutState {
             return false;
         }
     }
-
     public boolean ReRollDice1(int playerId){
         if(playerId == whoseTurn) {
 
@@ -108,7 +107,6 @@ public class CosmicWimpoutState {
             return false;
         }
     }
-
     public boolean ReRollDice2(int playerId){
         if(playerId == whoseTurn) {
 
@@ -119,7 +117,6 @@ public class CosmicWimpoutState {
             return false;
         }
     }
-
     public boolean ReRollDice3(int playerId){
         if(playerId == whoseTurn) {
 
