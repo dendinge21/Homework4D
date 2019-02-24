@@ -58,6 +58,17 @@ public class CosmicWimpoutState {
 
         whoseTurn = orig.whoseTurn;
 
+        diceNumOne.diceState = orig.diceNumOne.diceState;
+        diceNumOne.diceID = orig.diceNumOne.diceID;
+        diceNumTwo.diceState = orig.diceNumTwo.diceState;
+        diceNumTwo.diceID = orig.diceNumTwo.diceID;
+        diceNumThree.diceState = orig.diceNumThree.diceState;
+        diceNumThree.diceID = orig.diceNumThree.diceID;
+        diceNumFour.diceState = orig.diceNumFour.diceState;
+        diceNumFour.diceID = orig.diceNumFour.diceID;
+        diceNumFive.diceState = orig.diceNumFive.diceState;
+        diceNumFive.diceID = orig.diceNumFive.diceID;
+
 
     }
 
