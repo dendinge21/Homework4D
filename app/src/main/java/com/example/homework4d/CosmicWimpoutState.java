@@ -28,23 +28,22 @@ public class CosmicWimpoutState {
     private Dice diceNumFour = new Dice(4);
     private Dice diceNumFive = new Dice(5);
 
-    public CosmicWimpoutState(int currentScore1, int currentScore2, int currentScore3, int playerTurn,
-                              Dice numOne, Dice numTwo, Dice numThree, Dice numFour, Dice numFive){
+    public CosmicWimpoutState(){
         currentScorePlayer1 = 0;
         currentScorePlayer2 = 0;
         currentScorePlayer3 = 0;
 
-        whoseTurn = playerTurn;
+        whoseTurn = 1;
 
         diceNumOne.diceState = 1;
         diceNumOne.diceID = 1;
-        diceNumTwo.diceState = numTwo.diceState;
+        diceNumTwo.diceState = 1;
         diceNumTwo.diceID = 2;
-        diceNumThree.diceState = numThree.diceState;
+        diceNumThree.diceState = 1;
         diceNumThree.diceID = 3;
-        diceNumFour.diceState = numFour.diceState;
+        diceNumFour.diceState = 1;
         diceNumFour.diceID = 4;
-        diceNumFive.diceState = numFive.diceState;
+        diceNumFive.diceState = 1;
         diceNumFive.diceID = 5;
 
         //finish once more instance variables
