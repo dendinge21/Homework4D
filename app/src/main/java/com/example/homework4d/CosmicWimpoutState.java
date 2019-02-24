@@ -135,7 +135,7 @@ public class CosmicWimpoutState {
             return false;
         }
     }
-    public boolean ReRollDice1(int playerId){
+    public boolean ReRollDice(int playerId, int diceId){
         if(playerId == whoseTurn) {
 
             return true;
@@ -145,45 +145,6 @@ public class CosmicWimpoutState {
             return false;
         }
     }
-    public boolean ReRollDice2(int playerId){
-        if(playerId == whoseTurn) {
 
-            return true;
-        }
-        else{
-            // illegal move
-            return false;
-        }
-    }
-    public boolean ReRollDice3(int playerId){
-        if(playerId == whoseTurn) {
-
-            return true;
-        }
-        else{
-            // illegal move
-            return false;
-        }
-    }
-    public boolean ReRollDice4(int playerId){
-        if(playerId == whoseTurn) {
-
-            return true;
-        }
-        else{
-            // illegal move
-            return false;
-        }
-    }
-    public boolean ReRollDice5(int playerId){
-        if(playerId == whoseTurn) {
-
-            return true;
-        }
-        else{
-            // illegal move
-            return false;
-        }
-    }
 
 }
