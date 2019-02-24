@@ -42,7 +42,7 @@ public class CosmicWimpoutState {
         diceArray[4] = diceNumFive;
         for(int i = 0; i < diceArray.length; i++){
             diceArray[i].diceID = i+1;
-            diceArray[i].diceState = 0;
+            diceArray[i].diceState = 1;
         }
 
         //finish once more instance variables
