@@ -1,5 +1,7 @@
 package com.example.homework4d;
 
+import java.util.Random;
+
 public class CosmicWimpoutState {
     //instance variables that should encompass all the information
     /**
@@ -17,6 +19,11 @@ public class CosmicWimpoutState {
     private int currentScorePlayer3;
 
     private int whoseTurn;
+    private Dice diceNumOne;
+    private Dice diceNumTwo;
+    private Dice diceNumThree;
+    private Dice diceNumFour;
+    private Dice diceNumFive;
 
     public CosmicWimpoutState(int currentScore1, int currentScore2, int currentScore3, int playerTurn){
         currentScorePlayer1 = currentScore1;
@@ -49,6 +56,99 @@ public class CosmicWimpoutState {
      return false; if its illegal
      return true; if its legal (modify the game state if its true \
      pass in player as a parameter
+
+     re-Rolls
+     Roll Dice
+     End Game
+     End Turn
      */
+
+    public boolean RollDice(int playerId){
+
+        if(playerId == whoseTurn) {
+
+            return true;
+        }
+        else{
+            // illegal move
+            return false;
+        }
+
+    }
+
+    public boolean EndGame(int playerId){
+        if(playerId == whoseTurn) {
+
+            return true;
+        }
+        else{
+            // illegal move
+            return false;
+        }
+    }
+
+    public boolean EndTurn(int playerId) {
+        if(playerId == whoseTurn) {
+
+            return true;
+        }
+        else{
+            // illegal move
+            return false;
+        }
+    }
+
+    public boolean ReRollDice1(int playerId){
+        if(playerId == whoseTurn) {
+
+            return true;
+        }
+        else{
+            // illegal move
+            return false;
+        }
+    }
+
+    public boolean ReRollDice2(int playerId){
+        if(playerId == whoseTurn) {
+
+            return true;
+        }
+        else{
+            // illegal move
+            return false;
+        }
+    }
+
+    public boolean ReRollDice3(int playerId){
+        if(playerId == whoseTurn) {
+
+            return true;
+        }
+        else{
+            // illegal move
+            return false;
+        }
+    }
+    public boolean ReRollDice4(int playerId){
+        if(playerId == whoseTurn) {
+
+            return true;
+        }
+        else{
+            // illegal move
+            return false;
+        }
+    }
+    public boolean ReRollDice5(int playerId){
+        if(playerId == whoseTurn) {
+
+            return true;
+        }
+        else{
+            // illegal move
+            return false;
+        }
+    }
 
 }
