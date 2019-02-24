@@ -19,6 +19,7 @@ public class CosmicWimpoutState {
     private int currentScorePlayer3;
 
     private int whoseTurn;
+    private int numPlayers;
 
 
     private Dice diceNumOne = new Dice(1);
@@ -29,22 +30,22 @@ public class CosmicWimpoutState {
 
     public CosmicWimpoutState(int currentScore1, int currentScore2, int currentScore3, int playerTurn,
                               Dice numOne, Dice numTwo, Dice numThree, Dice numFour, Dice numFive){
-        currentScorePlayer1 = currentScore1;
-        currentScorePlayer2 = currentScore2;
-        currentScorePlayer3 = currentScore3;
+        currentScorePlayer1 = 0;
+        currentScorePlayer2 = 0;
+        currentScorePlayer3 = 0;
 
         whoseTurn = playerTurn;
 
-        diceNumOne.diceState = numOne.diceState;
-        diceNumOne.diceID = numOne.diceID;
+        diceNumOne.diceState = 1;
+        diceNumOne.diceID = 1;
         diceNumTwo.diceState = numTwo.diceState;
-        diceNumTwo.diceID = numTwo.diceID;
+        diceNumTwo.diceID = 2;
         diceNumThree.diceState = numThree.diceState;
-        diceNumThree.diceID = numThree.diceID;
+        diceNumThree.diceID = 3;
         diceNumFour.diceState = numFour.diceState;
-        diceNumFour.diceID = numFour.diceID;
+        diceNumFour.diceID = 4;
         diceNumFive.diceState = numFive.diceState;
-        diceNumFive.diceID = numFive.diceID;
+        diceNumFive.diceID = 5;
 
         //finish once more instance variables
 
@@ -92,8 +93,14 @@ public class CosmicWimpoutState {
      */
 
     public boolean RollDice(int playerId){
-
+        int rand0, rand1, rand2, rand3, rand4;
         if(playerId == whoseTurn) {
+            //rolls all dice
+            rand0 = (int)(Math.random()*6);
+            rand1 = (int)(Math.random()*6);
+            rand2 = (int)(Math.random()*6);
+            rand3 = (int)(Math.random()*6);
+            rand4 = (int)(Math.random()*6);
 
             return true;
         }

@@ -1,6 +1,5 @@
 package com.example.homework4d;
 
-import java.lang.Math;
 
 public class Dice {
 
