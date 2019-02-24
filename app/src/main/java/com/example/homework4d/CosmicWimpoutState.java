@@ -19,6 +19,8 @@ public class CosmicWimpoutState {
     private int currentScorePlayer3;
 
     private int whoseTurn;
+
+
     private Dice diceNumOne;
     private Dice diceNumTwo;
     private Dice diceNumThree;
@@ -42,6 +44,8 @@ public class CosmicWimpoutState {
         currentScorePlayer3 = orig.currentScorePlayer3;
 
         whoseTurn = orig.whoseTurn;
+
+
     }
 
     /**
@@ -78,7 +82,6 @@ public class CosmicWimpoutState {
 
     public boolean EndGame(int playerId){
         if(playerId == whoseTurn) {
-
             return true;
         }
         else{
@@ -89,7 +92,18 @@ public class CosmicWimpoutState {
 
     public boolean EndTurn(int playerId) {
         if(playerId == whoseTurn) {
-
+            if(playerId == 1){
+                //add points
+                whoseTurn = 2;
+            }
+            else if(playerId == 2){
+                //add points
+                whoseTurn = 3;
+            }
+            else if(playerId == 3){
+                //add points
+                whoseTurn = 1;
+            }
             return true;
         }
         else{
