@@ -158,27 +158,6 @@ public class CosmicWimpoutState {
     }
 
     public String setFaces(int id){
-        if(id == 5){
-            if(diceArray[id].diceState == 1){
-                faceName = "ten";
-            }
-            else if(diceArray[id].diceState == 2){
-                faceName = "half moons";
-            }
-            else if(diceArray[id].diceState == 3){
-                faceName = "flaming sun";
-            }
-            else if(diceArray[id].diceState == 4){
-                faceName = "bolts";
-            }
-            else if(diceArray[id].diceState == 5){
-                faceName = "five";
-            }
-            else if(diceArray[id].diceState == 6){
-                faceName = "stars";
-            }
-            return faceName;
-        }
         if(diceArray[id].diceState == 1){
             faceName = "ten";
         }
@@ -186,7 +165,12 @@ public class CosmicWimpoutState {
             faceName = "half moons";
         }
         else if(diceArray[id].diceState == 3){
-            faceName = "triangles";
+            if(id == 5) {
+                faceName = "flaming sun";
+            }
+            else {
+                faceName = "triangles";
+            }
         }
         else if(diceArray[id].diceState == 4){
             faceName = "bolts";
