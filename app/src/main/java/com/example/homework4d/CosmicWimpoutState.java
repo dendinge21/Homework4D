@@ -95,12 +95,12 @@ public class CosmicWimpoutState {
         int rand0, rand1, rand2, rand3, rand4;
         if(playerId == whoseTurn) {
             //rolls all dice
-            rand0 = (int)(Math.random()*6);
-            rand1 = (int)(Math.random()*6);
-            rand2 = (int)(Math.random()*6);
-            rand3 = (int)(Math.random()*6);
-            rand4 = (int)(Math.random()*6);
-
+            diceNumOne.diceState = rand0 = (int)(Math.random()*6);
+            diceNumTwo.diceState = rand1 = (int)(Math.random()*6);
+            diceNumThree.diceState = rand2 = (int)(Math.random()*6);
+            diceNumFour.diceState = rand3 = (int)(Math.random()*6);
+            diceNumFive.diceState = rand4 = (int)(Math.random()*6);
+            
             return true;
         }
         else{

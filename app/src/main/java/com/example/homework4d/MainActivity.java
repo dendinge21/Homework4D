@@ -25,8 +25,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         edit.setText("");
-        // CosmicWimpoutState firstInstance = new CosmicWimpoutState(0,0,0,1);
-       // CosmicWimpoutState secondInstance = new CosmicWimpoutState(firstInstance);
+        CosmicWimpoutState firstInstance = new CosmicWimpoutState();
+        CosmicWimpoutState secondInstance = new CosmicWimpoutState(firstInstance);
         //call methods on first instance
         //edit the multi line text (append method)
 
