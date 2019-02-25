@@ -39,12 +39,17 @@ public class CosmicWimpoutState {
         diceArray[2] = new Dice(3);
         diceArray[3] = new Dice(4);
         diceArray[4] = new Dice(5);
+        playerArrayList.add(new Player(1));
+        playerArrayList.add(new Player(2));
+        playerArrayList.add(new Player(3));
         for(int i = 0; i < diceArray.length; i++){
             diceArray[i].diceID = i+1;
             diceArray[i].diceState = 1;
         }
-        for(){
-            //player instance variables 
+        for(int i = 0; i<playerArrayList.size();i++){
+            //player instance variables
+            playerArrayList.get(i).setPlayerID(i+1);
+            playerArrayList.get(i).setPlayerScore(0);
         }
 
         //finish once more instance variables
