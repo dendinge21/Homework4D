@@ -1,5 +1,7 @@
 package com.example.homework4d;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Random;
 
 public class CosmicWimpoutState {
@@ -21,30 +23,25 @@ public class CosmicWimpoutState {
     private int whoseTurn;
     private int numPlayers;
 
-
-    private Dice diceNumOne = new Dice(1);
-    private Dice diceNumTwo = new Dice(2);
-    private Dice diceNumThree = new Dice(3);
-    private Dice diceNumFour = new Dice(4);
-    private Dice diceNumFive = new Dice(5);
     private Dice diceArray[] = new Dice[5];
     private String faceName;
+    private ArrayList<Player> playerArrayList = new ArrayList();
 
     public CosmicWimpoutState(){
         whoseTurn = 1;
         currentScorePlayer1 = 0;
         currentScorePlayer2 = 0;
         currentScorePlayer3 = 0;
-        diceArray[0] = diceNumOne;
-        diceArray[1] = diceNumTwo;
-        diceArray[2] = diceNumThree;
-        diceArray[3] = diceNumFour;
-        diceArray[4] = diceNumFive;
+        //I removed the earlier dice objects and just went ahead and instanced the dice here - SL
+        diceArray[0] = new Dice(1);
+        diceArray[1] = new Dice(2);
+        diceArray[2] = new Dice(3);
+        diceArray[3] = new Dice(4);
+        diceArray[4] = new Dice(5);
         for(int i = 0; i < diceArray.length; i++){
             diceArray[i].diceID = i+1;
             diceArray[i].diceState = 1;
         }
-
         //finish once more instance variables
 
     }
@@ -74,10 +71,16 @@ public class CosmicWimpoutState {
 
     @Override
     public String toString() {
-        return "Player1 Score: " + currentScorePlayer1 + "Player2 Score: " + currentScorePlayer2 +
-                "Player3 Score: " + currentScorePlayer3 + "Player Turn: " + whoseTurn + "Number of players: " +
-                numPlayers + "Dice 1: " + diceNumOne + "Dice 2: " + diceNumTwo + "Dice 3: " + diceNumThree +
-                "Dice 4: " + diceNumFour + "Dice 5: " + diceNumFive;
+        return "Player1 Score: " + currentScorePlayer1 +
+                "Player2 Score: " + currentScorePlayer2 +
+                "Player3 Score: " + currentScorePlayer3 +
+                "Player Turn: " + whoseTurn +
+                "Number of players: " + numPlayers +
+                "Dice 1: " + diceArray[0].diceState +
+                "Dice 2: " + diceArray[1].diceState +
+                "Dice 3: " + diceArray[2].diceState +
+                "Dice 4: " + diceArray[3].diceState +
+                "Dice 5: " + diceArray[4].diceState;
     }
 
     /**
@@ -94,7 +97,7 @@ public class CosmicWimpoutState {
      End Turn
      */
 
-    public boolean RollDice(int playerId){
+    public boolean rollAllDice(int playerId){
         if(playerId == whoseTurn) {
             //rolls all dice
             diceArray[0].diceState = (int)(Math.random()*6);
@@ -110,8 +113,7 @@ public class CosmicWimpoutState {
         }
 
     }
-
-    public boolean EndGame(int playerId){
+    public boolean endGame(int playerId){
         if(playerId == whoseTurn) {
             return true;
         }
@@ -120,8 +122,7 @@ public class CosmicWimpoutState {
             return false;
         }
     }
-
-    public boolean EndTurn(int playerId) {
+    public boolean endTurn(int playerId) {
         if(playerId == whoseTurn) {
             if(playerId == 1){
                 //add points?
@@ -142,7 +143,7 @@ public class CosmicWimpoutState {
             return false;
         }
     }
-    public boolean ReRollDice(int playerId, int id ){
+    public boolean rollSingleDice(int playerId, int id ){
         if(playerId == whoseTurn) {
             diceArray[id-1].rollMe();
             return true;
@@ -152,7 +153,6 @@ public class CosmicWimpoutState {
             return false;
         }
     }
-
     public String setFaces(int id){
         if(id == 5){
             if(diceArray[id].diceState == 1){
@@ -195,5 +195,56 @@ public class CosmicWimpoutState {
         }
         return faceName;
     }
+
+    public int totalDiceScore(Dice[] ourDice){
+        //This should check for a supernova - TOO MANY POINTS -- SL
+
+        if(     ourDice[0].diceState == 1 &&
+                ourDice[1].diceState == 1 &&
+                ourDice[2].diceState == 1 &&
+                ourDice[3].diceState == 1 &&
+                ourDice[4].diceState == 1){
+                //Some action leading to the game ending happens here
+                return -1;
+        }
+
+
+
+        /*
+        I started the logic for flashes here.
+        There are 5c3 (10) combinations we have to check for. This doesn't exclude higher scoring
+        rolls yet. This will probably be an else case after we handle 5-of-a-kind and 4-of-a-kind
+
+         -- SL
+        */
+        //flash checking logic
+        if ((     (ourDice[0].diceState == ourDice[1].diceState &&
+                    ourDice[1].diceState == ourDice[2].diceState) //compare dice (0, 1, 2)
+                || (ourDice[2].diceState == ourDice[3].diceState &&
+                    ourDice[3].diceState == ourDice[1].diceState)//compare dice (1, 2, 3)
+                || (ourDice[2].diceState == ourDice[3].diceState &&
+                    ourDice[3].diceState == ourDice[4].diceState)//compare dice (2, 3, 4)
+                || (ourDice[0].diceState == ourDice[1].diceState &&
+                    ourDice[1].diceState == ourDice[3].diceState)//compare dice (0, 1, 3)
+                || (ourDice[0].diceState == ourDice[1].diceState &&
+                    ourDice[1].diceState == ourDice[4].diceState) //compare dice (0, 1, 4)
+                || (ourDice[0].diceState == ourDice[2].diceState &&
+                    ourDice[2].diceState == ourDice[3].diceState)//compare dice (0, 2, 3)
+                || (ourDice[0].diceState == ourDice[2].diceState &&
+                    ourDice[2].diceState == ourDice[4].diceState)//compare dice (0, 2, 4)
+                || (ourDice[0].diceState == ourDice[3].diceState &&
+                    ourDice[3].diceState == ourDice[4].diceState)//compare dice (0, 3, 4)
+                || (ourDice[4].diceState == ourDice[1].diceState &&
+                    ourDice[1].diceState == ourDice[3].diceState)//compare dice (1, 3, 4)
+                || (ourDice[2].diceState == ourDice[1].diceState &&
+                    ourDice[1].diceState == ourDice[4].diceState)//compare dice (1, 2, 4)
+
+                )){
+                    //some action making the player clear the flash happens here
+                    return -1;
+                }
+        return 0;
+    }
+
 
 }
