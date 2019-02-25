@@ -191,7 +191,43 @@ public class CosmicWimpoutState {
                 //Some action leading to the game ending happens here
                 return -1;
         }
-
+        else if(     ourDice[0].diceState == 2 &&
+                ourDice[1].diceState == 2 &&
+                ourDice[2].diceState == 2 &&
+                ourDice[3].diceState == 2 &&
+                ourDice[4].diceState == 2){
+            return 200;
+        }
+        else if(     ourDice[0].diceState == 3 &&
+                ourDice[1].diceState == 3 &&
+                ourDice[2].diceState == 3 &&
+                ourDice[3].diceState == 3 &&
+                ourDice[4].diceState == 3){
+            return 300;
+        }
+        else if(     ourDice[0].diceState == 4 &&
+                ourDice[1].diceState == 4 &&
+                ourDice[2].diceState == 4 &&
+                ourDice[3].diceState == 4 &&
+                ourDice[4].diceState == 4){
+            return 400;
+        }
+        else if(     ourDice[0].diceState == 5 &&
+                ourDice[1].diceState == 5 &&
+                ourDice[2].diceState == 5 &&
+                ourDice[3].diceState == 5 &&
+                ourDice[4].diceState == 5){
+            return 500;
+        }
+        else if(     ourDice[0].diceState == 6 &&
+                ourDice[1].diceState == 6 &&
+                ourDice[2].diceState == 6 &&
+                ourDice[3].diceState == 6 &&
+                ourDice[4].diceState == 6){
+            //Instant Winner
+            //Some action leading to the game ending happens here
+            return 0;
+        }
 
 
         /*
