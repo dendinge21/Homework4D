@@ -77,9 +77,9 @@ public class CosmicWimpoutState {
 
     @Override
     public String toString() {
-        return "Player1 Score: " + currentScorePlayer1 +
-                "Player2 Score: " + currentScorePlayer2 +
-                "Player3 Score: " + currentScorePlayer3 +
+        return "Player1 Score: " + playerArrayList.get(0).getPlayerScore() +
+                "Player2 Score: " + playerArrayList.get(1).getPlayerScore() +
+                "Player3 Score: " + playerArrayList.get(2).getPlayerScore() +
                 "Player Turn: " + whoseTurn  +
                 "Number of Players" + numPlayers +
                 "Dice 1: " + diceArray[0].diceState +
