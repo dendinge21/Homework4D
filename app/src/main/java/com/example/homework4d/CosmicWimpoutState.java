@@ -29,9 +29,10 @@ public class CosmicWimpoutState {
 
     public CosmicWimpoutState(){
         whoseTurn = 1;
-        currentScorePlayer1 = 0;
-        currentScorePlayer2 = 0;
-        currentScorePlayer3 = 0;
+        numPlayers = 3;
+        //currentScorePlayer1 = 0;
+        //currentScorePlayer2 = 0;
+       // currentScorePlayer3 = 0;
         //I removed the earlier dice objects and just went ahead and instanced the dice here - SL
         diceArray[0] = new Dice(1);
         diceArray[1] = new Dice(2);
@@ -42,6 +43,10 @@ public class CosmicWimpoutState {
             diceArray[i].diceID = i+1;
             diceArray[i].diceState = 1;
         }
+        for(){
+            //player instance variables 
+        }
+
         //finish once more instance variables
 
     }
@@ -74,8 +79,8 @@ public class CosmicWimpoutState {
         return "Player1 Score: " + currentScorePlayer1 +
                 "Player2 Score: " + currentScorePlayer2 +
                 "Player3 Score: " + currentScorePlayer3 +
-                "Player Turn: " + whoseTurn +
-                "Number of players: " + numPlayers +
+                "Player Turn: " + whoseTurn  +
+                "Number of Players" + numPlayers +
                 "Dice 1: " + diceArray[0].diceState +
                 "Dice 2: " + diceArray[1].diceState +
                 "Dice 3: " + diceArray[2].diceState +
