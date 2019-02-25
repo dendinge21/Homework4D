@@ -16,10 +16,6 @@ public class CosmicWimpoutState {
     // to satisfy Serializable interface
     private static final long serialVersionUID = 12345678910L;
 
-    private int currentScorePlayer1;
-    private int currentScorePlayer2;
-    private int currentScorePlayer3;
-
     private int whoseTurn;
     private int numPlayers;
 
@@ -30,9 +26,6 @@ public class CosmicWimpoutState {
     public CosmicWimpoutState(){
         whoseTurn = 1;
         numPlayers = 3;
-        //currentScorePlayer1 = 0;
-        //currentScorePlayer2 = 0;
-       // currentScorePlayer3 = 0;
         //I removed the earlier dice objects and just went ahead and instanced the dice here - SL
         diceArray[0] = new Dice(1);
         diceArray[1] = new Dice(2);
@@ -58,9 +51,6 @@ public class CosmicWimpoutState {
 
     //implement a deep copy
     public CosmicWimpoutState(CosmicWimpoutState orig){
-        currentScorePlayer1 = orig.currentScorePlayer1;
-        currentScorePlayer2 = orig.currentScorePlayer2;
-        currentScorePlayer3 = orig.currentScorePlayer3;
 
         whoseTurn = orig.whoseTurn;
 
@@ -71,6 +61,12 @@ public class CosmicWimpoutState {
             copyArray[i].diceState = orig.diceArray[i].diceState;
         }
 
+        ArrayList<Player> copyPlayerArrayList = new ArrayList();
+        for(int i=0; i <orig.playerArrayList.size();i++){
+            copyPlayerArrayList.add(new Player(i+1));
+            copyPlayerArrayList.get(i).setPlayerID(orig.playerArrayList.get(i).getPlayerID());
+            copyPlayerArrayList.get(i).setPlayerScore(orig.playerArrayList.get(i).getPlayerScore());
+        }
 
     }
 
