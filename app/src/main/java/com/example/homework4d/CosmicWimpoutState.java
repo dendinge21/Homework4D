@@ -342,18 +342,34 @@ public class CosmicWimpoutState {
 
         //BEGIN NORMAL FLASH HANDLING
         if(halfMoonCount >= 3 && halfMoonCount < 5){
-            rollSingleDice(playerId, (halfMoonReRoll + 1));
-            haveToReRoll = true;
+            if(halfMoonCount ==4) {
+                rollSingleDice(playerId, (halfMoonReRoll + 1));
+                if(halfMoonReRoll == 5){
+                    rollSingleDice(playerId, 1);
+                }
+                else{
+                    rollSingleDice(playerId, halfMoonReRoll +2);
+                }
+                haveToReRoll = true;
+            }
             return 20;
         }
         if(triangleCount >= 3 && triangleCount < 5){
-            rollSingleDice(playerId, (triangleReRoll + 1));
-            haveToReRoll = true;
+            if(triangleCount ==4) {
+                rollSingleDice(playerId, (triangleReRoll + 1));
+                haveToReRoll = true;
+            }
             return 30;
         }
         if(boltCount >= 3 && boltCount < 5){
             if(boltCount ==4){
                 rollSingleDice(playerId, (boltReRoll + 1));
+                if(boltReRoll == 5){
+                    rollSingleDice(playerId, 1);
+                }
+                else{
+                    rollSingleDice(playerId, boltReRoll +2);
+                }
                 haveToReRoll = true;
             }
             return 40;
@@ -362,6 +378,12 @@ public class CosmicWimpoutState {
           //  turnScore = turnScore + 50;
             if(fiveCount ==4){
                 rollSingleDice(playerId, (fiveReRoll + 1));
+                if(fiveReRoll == 5){
+                    rollSingleDice(playerId, 1);
+                }
+                else{
+                    rollSingleDice(playerId, fiveReRoll +2);
+                }
                 haveToReRoll = true;
             }
             return 50;
@@ -370,6 +392,12 @@ public class CosmicWimpoutState {
           //  turnScore = turnScore + 60;
             if(starCount ==4){
                 rollSingleDice(playerId, (starReRoll + 1));
+                if(starReRoll == 5){
+                    rollSingleDice(playerId, 1);
+                }
+                else{
+                    rollSingleDice(playerId, starReRoll +2);
+                }
                 haveToReRoll = true;
             }
             return 60;
@@ -378,6 +406,12 @@ public class CosmicWimpoutState {
            // turnScore = turnScore + 100;
             if(tenCount ==4){
                 rollSingleDice(playerId, (tenReRoll + 1));
+                if(tenReRoll == 5){
+                    rollSingleDice(playerId, 1);
+                }
+                else{
+                    rollSingleDice(playerId, tenReRoll +2);
+                }
                 haveToReRoll = true;
             }
             return 100;
