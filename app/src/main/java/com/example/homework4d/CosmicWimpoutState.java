@@ -205,7 +205,7 @@ public class CosmicWimpoutState {
     }
 
     public int totalDiceScore(Dice[] ourDice, int playerId){
-        //This should check for a supernova - TOO MANY POINTS -- SL
+        //SUPERNOVA AND FREIGHT TRAIN CHECKING
         if(     ourDice[0].diceState == 1 &&
                 ourDice[1].diceState == 1 &&
                 ourDice[2].diceState == 1 &&
@@ -250,6 +250,7 @@ public class CosmicWimpoutState {
             //Some action leading to the game ending happens here
             return 0;
         }
+        //END SUPERNOVA AND FREIGHT TRAIN CHECKING
 
 
         int halfMoonCount = 0;
@@ -298,11 +299,11 @@ public class CosmicWimpoutState {
                 }
             }
         }
-        //END COUNTING DICE
+        //END DICE COUNTING
 
 
         //BEGIN FLAMING SUN FLASH CASES
-        if(halfMoonCount == 2 && diceArray[5].diceState == 3){
+        if(halfMoonCount == 2 && ourDice[5].diceState == 3){
             //turnScore = turnScore + 20;
             if(halfMoonCount ==4){
                 rollSingleDice(playerId, (halfMoonReRoll + 1));
@@ -310,7 +311,7 @@ public class CosmicWimpoutState {
             }
             return 20;
         }
-        if(triangleCount == 2 && diceArray[5].diceState == 3){
+        if(triangleCount == 2 && ourDice[5].diceState == 3){
             //turnScore = turnScore + 30;
             if(triangleCount ==4){
                 rollSingleDice(playerId, (triangleReRoll + 1));
@@ -318,7 +319,7 @@ public class CosmicWimpoutState {
             }
             return 30;
         }
-        if(boltCount == 2 && diceArray[5].diceState == 3){
+        if(boltCount == 2 && ourDice[5].diceState == 3){
             //turnScore = turnScore + 40;
             if(boltCount ==4){
                 rollSingleDice(playerId, (boltReRoll + 1));
@@ -326,7 +327,7 @@ public class CosmicWimpoutState {
             }
             return 40;
         }
-        if(fiveCount == 2 && diceArray[5].diceState == 3){
+        if(fiveCount == 2 && ourDice[5].diceState == 3){
             //  turnScore = turnScore + 50;
             if(fiveCount ==4){
                 rollSingleDice(playerId, (fiveReRoll + 1));
@@ -334,7 +335,7 @@ public class CosmicWimpoutState {
             }
             return 50;
         }
-        if(starCount == 2 && diceArray[5].diceState == 3){
+        if(starCount == 2 && ourDice[5].diceState == 3){
             //  turnScore = turnScore + 60;
             if(starCount ==4){
                 rollSingleDice(playerId, (starReRoll + 1));
@@ -342,7 +343,7 @@ public class CosmicWimpoutState {
             }
             return 60;
         }
-        if(tenCount == 2 && diceArray[5].diceState == 3){
+        if(tenCount == 2 && ourDice[5].diceState == 3){
             // turnScore = turnScore + 100;
             if(tenCount ==4){
                 rollSingleDice(playerId, (tenReRoll + 1));
@@ -403,6 +404,46 @@ public class CosmicWimpoutState {
             return 100;
         }
         //END NORMAL FLASH HANDLING
+
+
+        //BEGIN 10 & 5 COUNTING CASES
+        if(tenCount != 0){
+            if(fiveCount != 0){
+                return (fiveCount*5) + (tenCount*10);
+                //I don't know if we need to set haveToReroll to true here --SL
+            }
+            return tenCount*10;
+        }
+        if(fiveCount != 0){
+            return fiveCount*5;
+            //I don't know if we need to set haveToReroll to true here --SL
+        }
+        //END 10 & 5 COUNTING CASES
+
+        //BEGIN WIMPOUT CASE
+        //***** ONE OF YOU MIGHT WANT TO DOUBLE CHECK THIS *****
+        //first make sure there are no dice that can score on their own, include flaming sun
+        if(fiveCount ==0 && tenCount == 0 && ourDice[5].diceState != 3) {
+            //iterate through the dice and compare them to check for duplicate values
+            topLoop:
+            for (int i = 0; i < 5; i++) {
+                for (int k = 0; k < 5; k++) {
+                    //this avoids comparing the dice with itself
+                    if (i != k) {
+                        if (ourDice[i].diceState == ourDice[k].diceState) {
+                            //Found two dice that are similar, thus no wimpout
+                            //break all loops and return a value that ends the turn
+                            break topLoop;
+                        }
+                    }
+                }
+            }
+            return -1;
+        }
+        //END WIMPOUT CASE
+
+
+
         return 0;
     }
 
