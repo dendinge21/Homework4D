@@ -25,6 +25,13 @@ public class CosmicWimpoutState {
     private String faceName;
     private ArrayList<Player> playerArrayList = new ArrayList();
 
+    private int halfMoonReRoll;
+    private int triangleReRoll;
+    private int boltReRoll;
+    private int fiveReRoll;
+    private int starReRoll;
+    private int tenReRoll;
+
     public CosmicWimpoutState(){
         whoseTurn = 1;
         numPlayers = 3;
@@ -138,17 +145,21 @@ public class CosmicWimpoutState {
     }
     public boolean endTurn(int playerId) {
         if(playerId == whoseTurn) {
+            int currentScore = playerArrayList.get(playerId-1).getPlayerScore();
             if(playerId == 1){
-                //add points?
+                playerArrayList.get(playerId - 1).setPlayerScore(currentScore + turnScore);
                 whoseTurn = 2;
+                turnScore = 0;
             }
             else if(playerId == 2){
-                //add points?
+                playerArrayList.get(playerId - 1).setPlayerScore(currentScore + turnScore);
                 whoseTurn = 3;
+                turnScore = 0;
             }
             else if(playerId == 3){
-                //add points?
+                playerArrayList.get(playerId - 1).setPlayerScore(currentScore + turnScore);
                 whoseTurn = 1;
+                turnScore = 0; //reset turnScore to 0
             }
             return true;
         }
@@ -250,12 +261,6 @@ public class CosmicWimpoutState {
         int starCount=0;
         int tenCount=0;
 
-        int halfMoonReRoll;
-        int triangleReRoll;
-        int boltReRoll;
-        int fiveReRoll;
-        int starReRoll;
-        int tenReRoll;
 
         for(int i =0; i < ourDice.length; i++){
             if(ourDice[i].getDiceState() == 1){

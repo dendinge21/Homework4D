@@ -31,6 +31,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //edit the multi line text (append method)
         CosmicWimpoutState thirdInstance = new CosmicWimpoutState();
         CosmicWimpoutState fourthInstance = new CosmicWimpoutState(thirdInstance);
+        edit.append("Second Instance: " + secondInstance.toString() + " ");
+        edit.append("Fourth Instance: " + fourthInstance.toString() + " ");
 
 
 
