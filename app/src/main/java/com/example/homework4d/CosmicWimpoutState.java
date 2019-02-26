@@ -243,64 +243,56 @@ public class CosmicWimpoutState {
         }
 
 
-        /*
-        I started the logic for flashes here.
-        There are 5c3 (10) combinations we have to check for. This doesn't exclude higher scoring
-        rolls yet. This will probably be an else case after we handle 5-of-a-kind and 4-of-a-kind
-
-         -- SL
-
-        //flash checking logic
-        if ((     (ourDice[0].diceState == ourDice[1].diceState &&
-                    ourDice[1].diceState == ourDice[2].diceState) //compare dice (0, 1, 2)
-                || (ourDice[2].diceState == ourDice[3].diceState &&
-                    ourDice[3].diceState == ourDice[1].diceState)//compare dice (1, 2, 3)
-                || (ourDice[2].diceState == ourDice[3].diceState &&
-                    ourDice[3].diceState == ourDice[4].diceState)//compare dice (2, 3, 4)
-                || (ourDice[0].diceState == ourDice[1].diceState &&
-                    ourDice[1].diceState == ourDice[3].diceState)//compare dice (0, 1, 3)
-                || (ourDice[0].diceState == ourDice[1].diceState &&
-                    ourDice[1].diceState == ourDice[4].diceState) //compare dice (0, 1, 4)
-                || (ourDice[0].diceState == ourDice[2].diceState &&
-                    ourDice[2].diceState == ourDice[3].diceState)//compare dice (0, 2, 3)
-                || (ourDice[0].diceState == ourDice[2].diceState &&
-                    ourDice[2].diceState == ourDice[4].diceState)//compare dice (0, 2, 4)
-                || (ourDice[0].diceState == ourDice[3].diceState &&
-                    ourDice[3].diceState == ourDice[4].diceState)//compare dice (0, 3, 4)
-                || (ourDice[4].diceState == ourDice[1].diceState &&
-                    ourDice[1].diceState == ourDice[3].diceState)//compare dice (1, 3, 4)
-                || (ourDice[2].diceState == ourDice[1].diceState &&
-                    ourDice[1].diceState == ourDice[4].diceState)//compare dice (1, 2, 4)
-
-                )){
-                    //some action making the player clear the flash happens here
-                    return -1;
-                } */
-
         int halfMoonCount = 0;
         int triangleCount=0;
         int boltCount=0;
         int fiveCount =0;
         int starCount=0;
         int tenCount=0;
+
+        int halfMoonReRoll;
+        int triangleReRoll;
+        int boltReRoll;
+        int fiveReRoll;
+        int starReRoll;
+        int tenReRoll;
+
         for(int i =0; i < ourDice.length; i++){
             if(ourDice[i].getDiceState() == 1){
                 tenCount++;
+                if(tenCount == 4){
+                    tenReRoll=i;
+                }
             }
             if(ourDice[i].getDiceState() == 2){
                 halfMoonCount++;
+                if(halfMoonCount == 4){
+                    halfMoonReRoll=i;
+                }
             }
             if(ourDice[i].getDiceState() == 3 && ourDice[i].diceID != 5){
                 triangleCount++;
+                if(triangleCount == 4){
+                    triangleReRoll=i;
+                }
             }
             if(ourDice[i].getDiceState() == 4){
-                tenCount++;
+                boltCount++;
+                if(boltCount == 4){
+                    boltReRoll=i;
+                }
             }
             if(ourDice[i].getDiceState() == 5){
                 fiveCount++;
+                if(fiveCount == 4){
+                    fiveReRoll=i;
+                }
             }
             if(ourDice[i].getDiceState() == 6){
                 starCount++;
+                if(starCount == 4){
+                    starReRoll=i;
+                }
             }
         }
         if(halfMoonCount >= 3 && halfMoonCount < 5){
