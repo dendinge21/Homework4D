@@ -304,19 +304,14 @@ public class CosmicWimpoutState {
 
         //BEGIN FLAMING SUN FLASH CASES
         if(halfMoonCount == 2 && ourDice[5].diceState == 3){
-            //turnScore = turnScore + 20;
-            if(halfMoonCount ==4){
-                rollSingleDice(playerId, (halfMoonReRoll + 1));
-                haveToReRoll = true;
-            }
+            rollSingleDice(playerId, (halfMoonReRoll + 1));
+            haveToReRoll = true;
             return 20;
         }
         if(triangleCount == 2 && ourDice[5].diceState == 3){
-            //turnScore = turnScore + 30;
-            if(triangleCount ==4){
-                rollSingleDice(playerId, (triangleReRoll + 1));
-                haveToReRoll = true;
-            }
+            rollSingleDice(playerId, (triangleReRoll + 1));
+            haveToReRoll = true;
+
             return 30;
         }
         if(boltCount == 2 && ourDice[5].diceState == 3){
@@ -328,27 +323,18 @@ public class CosmicWimpoutState {
             return 40;
         }
         if(fiveCount == 2 && ourDice[5].diceState == 3){
-            //  turnScore = turnScore + 50;
-            if(fiveCount ==4){
-                rollSingleDice(playerId, (fiveReRoll + 1));
-                haveToReRoll = true;
-            }
+            rollSingleDice(playerId, (fiveReRoll + 1));
+            haveToReRoll = true;
             return 50;
         }
         if(starCount == 2 && ourDice[5].diceState == 3){
-            //  turnScore = turnScore + 60;
-            if(starCount ==4){
-                rollSingleDice(playerId, (starReRoll + 1));
-                haveToReRoll = true;
-            }
+            rollSingleDice(playerId, (starReRoll + 1));
+            haveToReRoll = true;
             return 60;
         }
         if(tenCount == 2 && ourDice[5].diceState == 3){
-            // turnScore = turnScore + 100;
-            if(tenCount ==4){
                 rollSingleDice(playerId, (tenReRoll + 1));
                 haveToReRoll = true;
-            }
             return 100;
         }//END FLAMING SUN FLASH CASE HANDLING
 
@@ -356,23 +342,16 @@ public class CosmicWimpoutState {
 
         //BEGIN NORMAL FLASH HANDLING
         if(halfMoonCount >= 3 && halfMoonCount < 5){
-            //turnScore = turnScore + 20;
-            if(halfMoonCount ==4){
-                rollSingleDice(playerId, (halfMoonReRoll + 1));
-                haveToReRoll = true;
-            }
+            rollSingleDice(playerId, (halfMoonReRoll + 1));
+            haveToReRoll = true;
             return 20;
         }
         if(triangleCount >= 3 && triangleCount < 5){
-            //turnScore = turnScore + 30;
-            if(triangleCount ==4){
-                rollSingleDice(playerId, (triangleReRoll + 1));
-                haveToReRoll = true;
-            }
+            rollSingleDice(playerId, (triangleReRoll + 1));
+            haveToReRoll = true;
             return 30;
         }
         if(boltCount >= 3 && boltCount < 5){
-            //turnScore = turnScore + 40;
             if(boltCount ==4){
                 rollSingleDice(playerId, (boltReRoll + 1));
                 haveToReRoll = true;
@@ -424,20 +403,6 @@ public class CosmicWimpoutState {
         //***** ONE OF YOU MIGHT WANT TO DOUBLE CHECK THIS *****
         //first make sure there are no dice that can score on their own, include flaming sun
         if(fiveCount ==0 && tenCount == 0 && ourDice[5].diceState != 3) {
-            //iterate through the dice and compare them to check for duplicate values
-            topLoop:
-            for (int i = 0; i < 5; i++) {
-                for (int k = 0; k < 5; k++) {
-                    //this avoids comparing the dice with itself
-                    if (i != k) {
-                        if (ourDice[i].diceState == ourDice[k].diceState) {
-                            //Found two dice that are similar, thus no wimpout
-                            //break all loops and return a value that ends the turn
-                            break topLoop;
-                        }
-                    }
-                }
-            }
             return -1;
         }
         //END WIMPOUT CASE
