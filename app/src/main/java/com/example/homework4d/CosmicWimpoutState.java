@@ -35,16 +35,15 @@ public class CosmicWimpoutState {
     public CosmicWimpoutState(){
         whoseTurn = 1;
         numPlayers = 3;
-        //I removed the earlier dice objects and just went ahead and instanced the dice here - SL
-        diceArray[0] = new Dice(1);
-        diceArray[1] = new Dice(2);
-        diceArray[2] = new Dice(3);
-        diceArray[3] = new Dice(4);
-        diceArray[4] = new Dice(5);
+        //for loop creates dice in all diceArray indices.
+        for(int i = 0; i<5; i++){
+            diceArray[i] = new Dice(i);
+        }
         playerArrayList.add(new Player(1));
         playerArrayList.add(new Player(2));
         playerArrayList.add(new Player(3));
         for(int i = 0; i < diceArray.length; i++){
+            //initialize all dice
             diceArray[i].diceID = i+1;
             diceArray[i].diceState = 1;
         }
@@ -207,7 +206,6 @@ public class CosmicWimpoutState {
 
     public int totalDiceScore(Dice[] ourDice, int playerId){
         //This should check for a supernova - TOO MANY POINTS -- SL
-
         if(     ourDice[0].diceState == 1 &&
                 ourDice[1].diceState == 1 &&
                 ourDice[2].diceState == 1 &&
@@ -300,6 +298,62 @@ public class CosmicWimpoutState {
                 }
             }
         }
+        //END COUNTING DICE
+
+
+        //BEGIN FLAMING SUN FLASH CASES
+        if(halfMoonCount == 2 && diceArray[5].diceState == 3){
+            //turnScore = turnScore + 20;
+            if(halfMoonCount ==4){
+                rollSingleDice(playerId, (halfMoonReRoll + 1));
+                haveToReRoll = true;
+            }
+            return 20;
+        }
+        if(triangleCount == 2 && diceArray[5].diceState == 3){
+            //turnScore = turnScore + 30;
+            if(triangleCount ==4){
+                rollSingleDice(playerId, (triangleReRoll + 1));
+                haveToReRoll = true;
+            }
+            return 30;
+        }
+        if(boltCount == 2 && diceArray[5].diceState == 3){
+            //turnScore = turnScore + 40;
+            if(boltCount ==4){
+                rollSingleDice(playerId, (boltReRoll + 1));
+                haveToReRoll = true;
+            }
+            return 40;
+        }
+        if(fiveCount == 2 && diceArray[5].diceState == 3){
+            //  turnScore = turnScore + 50;
+            if(fiveCount ==4){
+                rollSingleDice(playerId, (fiveReRoll + 1));
+                haveToReRoll = true;
+            }
+            return 50;
+        }
+        if(starCount == 2 && diceArray[5].diceState == 3){
+            //  turnScore = turnScore + 60;
+            if(starCount ==4){
+                rollSingleDice(playerId, (starReRoll + 1));
+                haveToReRoll = true;
+            }
+            return 60;
+        }
+        if(tenCount == 2 && diceArray[5].diceState == 3){
+            // turnScore = turnScore + 100;
+            if(tenCount ==4){
+                rollSingleDice(playerId, (tenReRoll + 1));
+                haveToReRoll = true;
+            }
+            return 100;
+        }//END FLAMING SUN FLASH CASE HANDLING
+
+
+
+        //BEGIN NORMAL FLASH HANDLING
         if(halfMoonCount >= 3 && halfMoonCount < 5){
             //turnScore = turnScore + 20;
             if(halfMoonCount ==4){
@@ -348,6 +402,7 @@ public class CosmicWimpoutState {
             }
             return 100;
         }
+        //END NORMAL FLASH HANDLING
         return 0;
     }
 
