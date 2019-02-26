@@ -27,7 +27,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         edit.setText("");
         CosmicWimpoutState firstInstance = new CosmicWimpoutState();
         CosmicWimpoutState secondInstance = new CosmicWimpoutState(firstInstance);
-        //call methods on first instance
+        //firstInstance.rollAllDice(1);
+        //append text
+        //firstInstance.rollSingleDice(1,2);
+        //append text
+        //firstInstance.endTurn(1);
+        //append text
+        //firstInstance.endGame(2);
         //edit the multi line text (append method)
         CosmicWimpoutState thirdInstance = new CosmicWimpoutState();
         CosmicWimpoutState fourthInstance = new CosmicWimpoutState(thirdInstance);

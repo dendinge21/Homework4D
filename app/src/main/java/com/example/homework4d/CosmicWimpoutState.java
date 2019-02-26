@@ -39,21 +39,20 @@ public class CosmicWimpoutState {
         for(int i = 0; i<5; i++){
             diceArray[i] = new Dice(i);
         }
-        playerArrayList.add(new Player(1));
-        playerArrayList.add(new Player(2));
-        playerArrayList.add(new Player(3));
+        this.playerArrayList.add(new Player(1));
+        this.playerArrayList.add(new Player(2));
+        this.playerArrayList.add(new Player(3));
         for(int i = 0; i < diceArray.length; i++){
             //initialize all dice
-            diceArray[i].diceID = i+1;
-            diceArray[i].diceState = 1;
+            this.diceArray[i].diceID = i+1;
+            this.diceArray[i].diceState = 1;
         }
         for(int i = 0; i<playerArrayList.size();i++){
             //player instance variables
-            playerArrayList.get(i).setPlayerID(i+1);
-            playerArrayList.get(i).setPlayerScore(0);
+            this.playerArrayList.get(i).setPlayerID(i+1);
+            this.playerArrayList.get(i).setPlayerScore(0);
         }
 
-        //finish once more instance variables
 
     }
 
@@ -62,18 +61,18 @@ public class CosmicWimpoutState {
 
         whoseTurn = orig.whoseTurn;
 
-        Dice copyArray[] = new Dice[5];
+        Dice diceArray[] = new Dice[5];
         for(int i =0; i < diceArray.length; i++){
-            copyArray[i] = new Dice(i+1);
-            copyArray[i].diceID = orig.diceArray[i].diceID;
-            copyArray[i].diceState = orig.diceArray[i].diceState;
+            this.diceArray[i] = new Dice(i+1);
+            this.diceArray[i].diceID = orig.diceArray[i].diceID;
+            this.diceArray[i].diceState = orig.diceArray[i].diceState;
         }
 
-        ArrayList<Player> copyPlayerArrayList = new ArrayList();
-        for(int i=0; i <orig.playerArrayList.size();i++){
-            copyPlayerArrayList.add(new Player(i+1));
-            copyPlayerArrayList.get(i).setPlayerID(orig.playerArrayList.get(i).getPlayerID());
-            copyPlayerArrayList.get(i).setPlayerScore(orig.playerArrayList.get(i).getPlayerScore());
+        ArrayList<Player> playerArrayList = new ArrayList();
+        for(int i=0; i < orig.playerArrayList.size();i++){
+            this.playerArrayList.add(new Player(i+1));
+            this.playerArrayList.get(i).setPlayerID(orig.playerArrayList.get(i).getPlayerID());
+            this.playerArrayList.get(i).setPlayerScore(orig.playerArrayList.get(i).getPlayerScore());
         }
 
     }
@@ -85,16 +84,16 @@ public class CosmicWimpoutState {
 
     @Override
     public String toString() {
-        return "Player1 Score: " + playerArrayList.get(0).getPlayerScore() +
+        return "Player Turn: " + this.whoseTurn  +
+                "Number of Players" + this.numPlayers  +
+                "Dice 1: " + this.diceArray[0].diceState +
+                "Dice 2: " + this.diceArray[1].diceState +
+                "Dice 3: " + this.diceArray[2].diceState +
+                "Dice 4: " + this.diceArray[3].diceState +
+                "Dice 5: " + this.diceArray[4].diceState +
+                "Player1 Score: " + playerArrayList.get(0).getPlayerScore() +
                 "Player2 Score: " + playerArrayList.get(1).getPlayerScore() +
-                "Player3 Score: " + playerArrayList.get(2).getPlayerScore() +
-                "Player Turn: " + whoseTurn  +
-                "Number of Players" + numPlayers +
-                "Dice 1: " + diceArray[0].diceState +
-                "Dice 2: " + diceArray[1].diceState +
-                "Dice 3: " + diceArray[2].diceState +
-                "Dice 4: " + diceArray[3].diceState +
-                "Dice 5: " + diceArray[4].diceState;
+                "Player3 Score: " + playerArrayList.get(2).getPlayerScore();
     }
 
     /**
