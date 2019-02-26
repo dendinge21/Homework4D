@@ -113,6 +113,12 @@ public class CosmicWimpoutState {
             diceArray[2].diceState = (int)(Math.random()*6);
             diceArray[3].diceState = (int)(Math.random()*6);
             diceArray[4].diceState = (int)(Math.random()*6);
+            if(totalDiceScore(diceArray) != -1) {
+                turnScore = turnScore + totalDiceScore(diceArray);
+            }
+            else{
+                turnScore = 0;
+            }
             return true;
         }
         else{
@@ -204,7 +210,7 @@ public class CosmicWimpoutState {
                 ourDice[2].diceState == 2 &&
                 ourDice[3].diceState == 2 &&
                 ourDice[4].diceState == 2){
-            turnScore = turnScore + 200;
+            haveToReRoll = true;
             return 200;
         }
 
@@ -213,7 +219,8 @@ public class CosmicWimpoutState {
                 ourDice[2].diceState == 4 &&
                 ourDice[3].diceState == 4 &&
                 ourDice[4].diceState == 4){
-            turnScore = turnScore + 400;
+            //turnScore = turnScore + 400;
+            haveToReRoll = true;
             return 400;
         }
         else if(     ourDice[0].diceState == 5 &&
@@ -221,7 +228,8 @@ public class CosmicWimpoutState {
                 ourDice[2].diceState == 5 &&
                 ourDice[3].diceState == 5 &&
                 ourDice[4].diceState == 5){
-            turnScore = turnScore + 500;
+            haveToReRoll = true;
+           // turnScore = turnScore + 500;
             return 500;
         }
         else if(     ourDice[0].diceState == 6 &&
@@ -296,42 +304,42 @@ public class CosmicWimpoutState {
             }
         }
         if(halfMoonCount >= 3 && halfMoonCount < 5){
-            turnScore = turnScore + 20;
+            //turnScore = turnScore + 20;
             if(halfMoonCount ==4){
                 haveToReRoll = true;
             }
             return 20;
         }
         if(triangleCount >= 3 && triangleCount < 5){
-            turnScore = turnScore + 30;
+            //turnScore = turnScore + 30;
             if(triangleCount ==4){
                 haveToReRoll = true;
             }
             return 30;
         }
         if(boltCount >= 3 && boltCount < 5){
-            turnScore = turnScore + 40;
+            //turnScore = turnScore + 40;
             if(boltCount ==4){
                 haveToReRoll = true;
             }
             return 40;
         }
         if(fiveCount >= 3 && fiveCount < 5){
-            turnScore = turnScore + 50;
+          //  turnScore = turnScore + 50;
             if(fiveCount ==4){
                 haveToReRoll = true;
             }
             return 50;
         }
         if(starCount >= 3 && starCount < 5){
-            turnScore = turnScore + 60;
+          //  turnScore = turnScore + 60;
             if(starCount ==4){
                 haveToReRoll = true;
             }
             return 60;
         }
         if(tenCount >= 3 && tenCount < 5){
-            turnScore = turnScore + 100;
+           // turnScore = turnScore + 100;
             if(tenCount ==4){
                 haveToReRoll = true;
             }
