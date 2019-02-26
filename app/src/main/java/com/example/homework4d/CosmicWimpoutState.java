@@ -120,7 +120,7 @@ public class CosmicWimpoutState {
             diceArray[2].diceState = (int)(Math.random()*6);
             diceArray[3].diceState = (int)(Math.random()*6);
             diceArray[4].diceState = (int)(Math.random()*6);
-            if(totalDiceScore(diceArray) != -1) {
+            if(totalDiceScore(diceArray,playerId) != -1) {
                 turnScore = turnScore + totalDiceScore(diceArray);
             }
             else{
@@ -205,7 +205,7 @@ public class CosmicWimpoutState {
         return faceName;
     }
 
-    public int totalDiceScore(Dice[] ourDice){
+    public int totalDiceScore(Dice[] ourDice, int playerId){
         //This should check for a supernova - TOO MANY POINTS -- SL
 
         if(     ourDice[0].diceState == 1 &&
@@ -303,6 +303,7 @@ public class CosmicWimpoutState {
         if(halfMoonCount >= 3 && halfMoonCount < 5){
             //turnScore = turnScore + 20;
             if(halfMoonCount ==4){
+                rollSingleDice(playerId, (halfMoonReRoll + 1));
                 haveToReRoll = true;
             }
             return 20;
@@ -310,6 +311,7 @@ public class CosmicWimpoutState {
         if(triangleCount >= 3 && triangleCount < 5){
             //turnScore = turnScore + 30;
             if(triangleCount ==4){
+                rollSingleDice(playerId, (triangleReRoll + 1));
                 haveToReRoll = true;
             }
             return 30;
@@ -317,6 +319,7 @@ public class CosmicWimpoutState {
         if(boltCount >= 3 && boltCount < 5){
             //turnScore = turnScore + 40;
             if(boltCount ==4){
+                rollSingleDice(playerId, (boltReRoll + 1));
                 haveToReRoll = true;
             }
             return 40;
@@ -324,6 +327,7 @@ public class CosmicWimpoutState {
         if(fiveCount >= 3 && fiveCount < 5){
           //  turnScore = turnScore + 50;
             if(fiveCount ==4){
+                rollSingleDice(playerId, (fiveReRoll + 1));
                 haveToReRoll = true;
             }
             return 50;
@@ -331,6 +335,7 @@ public class CosmicWimpoutState {
         if(starCount >= 3 && starCount < 5){
           //  turnScore = turnScore + 60;
             if(starCount ==4){
+                rollSingleDice(playerId, (starReRoll + 1));
                 haveToReRoll = true;
             }
             return 60;
@@ -338,6 +343,7 @@ public class CosmicWimpoutState {
         if(tenCount >= 3 && tenCount < 5){
            // turnScore = turnScore + 100;
             if(tenCount ==4){
+                rollSingleDice(playerId, (tenReRoll + 1));
                 haveToReRoll = true;
             }
             return 100;
