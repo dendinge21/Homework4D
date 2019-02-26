@@ -121,7 +121,7 @@ public class CosmicWimpoutState {
             diceArray[3].diceState = (int)(Math.random()*6);
             diceArray[4].diceState = (int)(Math.random()*6);
             if(totalDiceScore(diceArray,playerId) != -1) {
-                turnScore = turnScore + totalDiceScore(diceArray);
+                turnScore = turnScore + totalDiceScore(diceArray,playerId);
             }
             else{
                 turnScore = 0;
