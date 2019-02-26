@@ -267,13 +267,34 @@ public class CosmicWimpoutState {
                     return -1;
                 }
 
-        int halfMoonCount=0;
+        int halfMoonCount = 0;
         int triangleCount=0;
         int boltCount=0;
         int fiveCount =0;
         int starCount=0;
+        int tenCount=0;
         for(int i =0; i < ourDice.length; i++){
-
+            if(ourDice[i].getDiceState() == 1){
+                tenCount++;
+            }
+            if(ourDice[i].getDiceState() == 2){
+                halfMoonCount++;
+            }
+            if(ourDice[i].getDiceState() == 3 && ourDice[i].diceID != 5){
+                triangleCount++;
+            }
+            if(ourDice[i].getDiceState() == 4){
+                tenCount++;
+            }
+            if(ourDice[i].getDiceState() == 5){
+                fiveCount++;
+            }
+            if(ourDice[i].getDiceState() == 6){
+                starCount++;
+            }
+        }
+        if(halfMoonCount >= 3 && halfMoonCount < 5){
+            turnScore = turnScore + 20;
         }
         return 0;
     }
