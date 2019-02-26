@@ -358,6 +358,7 @@ public class CosmicWimpoutState {
             //turnScore = turnScore + 20;
             if(halfMoonCount ==4){
                 rollSingleDice(playerId, (halfMoonReRoll + 1));
+                rollSingleDice(playerId, (halfMoonReRoll +2));
                 haveToReRoll = true;
             }
             return 20;
@@ -374,6 +375,7 @@ public class CosmicWimpoutState {
             //turnScore = turnScore + 40;
             if(boltCount ==4){
                 rollSingleDice(playerId, (boltReRoll + 1));
+                rollSingleDice(playerId, (boltReRoll +2));
                 haveToReRoll = true;
             }
             return 40;
@@ -382,6 +384,7 @@ public class CosmicWimpoutState {
           //  turnScore = turnScore + 50;
             if(fiveCount ==4){
                 rollSingleDice(playerId, (fiveReRoll + 1));
+                rollSingleDice(playerId, (fiveReRoll +2));
                 haveToReRoll = true;
             }
             return 50;
@@ -390,6 +393,7 @@ public class CosmicWimpoutState {
           //  turnScore = turnScore + 60;
             if(starCount ==4){
                 rollSingleDice(playerId, (starReRoll + 1));
+                rollSingleDice(playerId, (starReRoll +2));
                 haveToReRoll = true;
             }
             return 60;
@@ -398,6 +402,7 @@ public class CosmicWimpoutState {
            // turnScore = turnScore + 100;
             if(tenCount ==4){
                 rollSingleDice(playerId, (tenReRoll + 1));
+                rollSingleDice(playerId, (tenReRoll +2));
                 haveToReRoll = true;
             }
             return 100;
