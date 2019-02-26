@@ -260,7 +260,7 @@ public class CosmicWimpoutState {
         int starCount=0;
         int tenCount=0;
 
-
+        //BEGIN DICE COUNTING
         for(int i =0; i < ourDice.length; i++){
             if(ourDice[i].getDiceState() == 1){
                 tenCount++;
@@ -311,15 +311,11 @@ public class CosmicWimpoutState {
         if(triangleCount == 2 && ourDice[5].diceState == 3){
             rollSingleDice(playerId, (triangleReRoll + 1));
             haveToReRoll = true;
-
             return 30;
         }
         if(boltCount == 2 && ourDice[5].diceState == 3){
-            //turnScore = turnScore + 40;
-            if(boltCount ==4){
-                rollSingleDice(playerId, (boltReRoll + 1));
-                haveToReRoll = true;
-            }
+            rollSingleDice(playerId, (boltReRoll + 1));
+            haveToReRoll = true;
             return 40;
         }
         if(fiveCount == 2 && ourDice[5].diceState == 3){
@@ -333,8 +329,8 @@ public class CosmicWimpoutState {
             return 60;
         }
         if(tenCount == 2 && ourDice[5].diceState == 3){
-                rollSingleDice(playerId, (tenReRoll + 1));
-                haveToReRoll = true;
+            rollSingleDice(playerId, (tenReRoll + 1));
+            haveToReRoll = true;
             return 100;
         }//END FLAMING SUN FLASH CASE HANDLING
 
@@ -399,15 +395,17 @@ public class CosmicWimpoutState {
         }
         //END 10 & 5 COUNTING CASES
 
+        //BEGIN ONLY FLAMING SUN CASE
+        if(tenCount == 0 && fiveCount == 0 && ourDice[5].diceState == 3){
+            return 10;
+        }
+        //END ONLY FLAMING SUN CASE
+
         //BEGIN WIMPOUT CASE
-        //***** ONE OF YOU MIGHT WANT TO DOUBLE CHECK THIS *****
-        //first make sure there are no dice that can score on their own, include flaming sun
         if(fiveCount ==0 && tenCount == 0 && ourDice[5].diceState != 3) {
             return -1;
         }
         //END WIMPOUT CASE
-
-
 
         return 0;
     }
