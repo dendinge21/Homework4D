@@ -18,7 +18,7 @@ public class CosmicWimpoutState {
 
     private int whoseTurn;
     private int numPlayers;
-
+    private int turnScore = 0;
     private Dice diceArray[] = new Dice[5];
     private String faceName;
     private ArrayList<Player> playerArrayList = new ArrayList();
@@ -202,20 +202,16 @@ public class CosmicWimpoutState {
                 ourDice[2].diceState == 2 &&
                 ourDice[3].diceState == 2 &&
                 ourDice[4].diceState == 2){
+            turnScore = turnScore + 200;
             return 200;
         }
-        else if(     ourDice[0].diceState == 3 &&
-                ourDice[1].diceState == 3 &&
-                ourDice[2].diceState == 3 &&
-                ourDice[3].diceState == 3 &&
-                ourDice[4].diceState == 3){
-            return 300;
-        }
+
         else if(     ourDice[0].diceState == 4 &&
                 ourDice[1].diceState == 4 &&
                 ourDice[2].diceState == 4 &&
                 ourDice[3].diceState == 4 &&
                 ourDice[4].diceState == 4){
+            turnScore = turnScore + 400;
             return 400;
         }
         else if(     ourDice[0].diceState == 5 &&
@@ -223,6 +219,7 @@ public class CosmicWimpoutState {
                 ourDice[2].diceState == 5 &&
                 ourDice[3].diceState == 5 &&
                 ourDice[4].diceState == 5){
+            turnScore = turnScore + 500;
             return 500;
         }
         else if(     ourDice[0].diceState == 6 &&
@@ -269,8 +266,18 @@ public class CosmicWimpoutState {
                     //some action making the player clear the flash happens here
                     return -1;
                 }
+
+        int halfMoonCount=0;
+        int triangleCount=0;
+        int boltCount=0;
+        int fiveCount =0;
+        int starCount=0;
+        for(int i =0; i < ourDice.length; i++){
+
+        }
         return 0;
     }
+
 
 
 }
