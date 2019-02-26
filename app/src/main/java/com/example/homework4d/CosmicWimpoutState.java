@@ -19,6 +19,8 @@ public class CosmicWimpoutState {
     private int whoseTurn;
     private int numPlayers;
     private int turnScore = 0;
+    private boolean canReRoll = true;
+    private boolean haveToReRoll = false;
     private Dice diceArray[] = new Dice[5];
     private String faceName;
     private ArrayList<Player> playerArrayList = new ArrayList();
@@ -239,7 +241,7 @@ public class CosmicWimpoutState {
         rolls yet. This will probably be an else case after we handle 5-of-a-kind and 4-of-a-kind
 
          -- SL
-        */
+
         //flash checking logic
         if ((     (ourDice[0].diceState == ourDice[1].diceState &&
                     ourDice[1].diceState == ourDice[2].diceState) //compare dice (0, 1, 2)
@@ -265,7 +267,7 @@ public class CosmicWimpoutState {
                 )){
                     //some action making the player clear the flash happens here
                     return -1;
-                }
+                } */
 
         int halfMoonCount = 0;
         int triangleCount=0;
@@ -295,6 +297,45 @@ public class CosmicWimpoutState {
         }
         if(halfMoonCount >= 3 && halfMoonCount < 5){
             turnScore = turnScore + 20;
+            if(halfMoonCount ==4){
+                haveToReRoll = true;
+            }
+            return 20;
+        }
+        if(triangleCount >= 3 && triangleCount < 5){
+            turnScore = turnScore + 30;
+            if(triangleCount ==4){
+                haveToReRoll = true;
+            }
+            return 30;
+        }
+        if(boltCount >= 3 && boltCount < 5){
+            turnScore = turnScore + 40;
+            if(boltCount ==4){
+                haveToReRoll = true;
+            }
+            return 40;
+        }
+        if(fiveCount >= 3 && fiveCount < 5){
+            turnScore = turnScore + 50;
+            if(fiveCount ==4){
+                haveToReRoll = true;
+            }
+            return 50;
+        }
+        if(starCount >= 3 && starCount < 5){
+            turnScore = turnScore + 60;
+            if(starCount ==4){
+                haveToReRoll = true;
+            }
+            return 60;
+        }
+        if(tenCount >= 3 && tenCount < 5){
+            turnScore = turnScore + 100;
+            if(tenCount ==4){
+                haveToReRoll = true;
+            }
+            return 100;
         }
         return 0;
     }
