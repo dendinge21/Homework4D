@@ -85,7 +85,7 @@ public class CosmicWimpoutState {
     @Override
     public String toString() {
         return "Player Turn: " + this.whoseTurn  +
-                " Number of Players" + this.numPlayers  +
+                " Number of Players " + this.numPlayers  +
                 " Dice 1: " + this.diceArray[0].diceState +
                 " Dice 2: " + this.diceArray[1].diceState +
                 " Dice 3: " + this.diceArray[2].diceState +
