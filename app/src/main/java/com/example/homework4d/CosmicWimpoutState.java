@@ -31,6 +31,10 @@ public class CosmicWimpoutState {
     private int fiveReRoll;
     private int starReRoll;
     private int tenReRoll;
+    enum dice{
+        TENS, MOONS, TRIANGLES, BOLTS, FIVES, STARS, FLAMINGSUN
+    }
+
 
     public CosmicWimpoutState(){
         whoseTurn = 1;
@@ -84,13 +88,19 @@ public class CosmicWimpoutState {
 
     @Override
     public String toString() {
+        String dice0Val;
+        String dice1Val;
+        String dice2Val;
+        String dice3Val;
+        String dice4Val;
+
         return "Player Turn: " + this.whoseTurn  + "\n" +
                 " Number of Players " + this.numPlayers  + "\n" +
-                " Dice 1: " + this.diceArray[0].diceState + "\n" +
-                " Dice 2: " + this.diceArray[1].diceState + "\n" +
-                " Dice 3: " + this.diceArray[2].diceState + "\n" +
-                " Dice 4: " + this.diceArray[3].diceState + "\n" +
-                " Dice 5: " + this.diceArray[4].diceState + "\n" +
+                " Dice 1: " + diceArray[0].getValAsString() + "\n" +
+                " Dice 2: " + diceArray[1].getValAsString() + "\n" +
+                " Dice 3: " + diceArray[2].getValAsString() + "\n" +
+                " Dice 4: " + diceArray[3].getValAsString() + "\n" +
+                " Dice 5: " + diceArray[4].getValAsString() + "\n" +
                 " Player1 Score: " + playerArrayList.get(0).getPlayerScore() + "\n" +
                 " Player2 Score: " + playerArrayList.get(1).getPlayerScore() + "\n" +
                 " Player3 Score: " + playerArrayList.get(2).getPlayerScore() + "\n" ;

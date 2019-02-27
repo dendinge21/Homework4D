@@ -24,6 +24,22 @@ public class Dice {
         this.diceState = (int)(Math.random()*6);
     }
 
-
+    public String getValAsString(){
+        switch (this.diceState) {
+            case 1:
+                return "Tens";
+            case 2:
+                return "Moons";
+            case 3:
+                return "Triangles";
+            case 4:
+                return "Bolts";
+            case 5:
+                return "Fives";
+            case 6 :
+                return "Stars";
+        }
+        return "null";
+    }
 
 }
