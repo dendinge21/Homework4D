@@ -61,14 +61,14 @@ public class CosmicWimpoutState {
 
         whoseTurn = orig.whoseTurn;
 
-        Dice diceArray[] = new Dice[5];
+        //Dice diceArray[] = new Dice[5];
         for(int i =0; i < diceArray.length; i++){
             this.diceArray[i] = new Dice(i+1);
             this.diceArray[i].diceID = orig.diceArray[i].diceID;
             this.diceArray[i].diceState = orig.diceArray[i].diceState;
         }
 
-        ArrayList<Player> playerArrayList = new ArrayList();
+       // ArrayList<Player> playerArrayList = new ArrayList();
         for(int i=0; i < orig.playerArrayList.size();i++){
             this.playerArrayList.add(new Player(i+1));
             this.playerArrayList.get(i).setPlayerID(orig.playerArrayList.get(i).getPlayerID());

@@ -39,23 +39,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         CosmicWimpoutState secondInstance = new CosmicWimpoutState(firstInstance);
         CosmicWimpoutState thirdInstance = new CosmicWimpoutState(secondInstance);
         CosmicWimpoutState fourthInstance = new CosmicWimpoutState(thirdInstance);
-        //checking number of times runTest is pressed to get instance
-        if(runTest.isPressed()) {
-            count++;
-            switch (count){
-                case 1:
-                    edit.append("First Instance: " + firstInstance.toString() + " ");
-                    break;
-                case 2:
-                    edit.append("Second Instance: " + secondInstance.toString() + " ");
-                    break;
-                case 3:
-                    edit.append("Third Instance: " + thirdInstance.toString() + " ");
-                    break;
-                case 4:
-                    edit.append("Fourth Instance: " + fourthInstance.toString() + " ");
-                    break;
-            }
-        }
+        edit.append("Second Instance: " + secondInstance.toString() + " ");
+        edit.append("Fourth Instance: " + fourthInstance.toString() + " ");
+
+
+
     }
 }
