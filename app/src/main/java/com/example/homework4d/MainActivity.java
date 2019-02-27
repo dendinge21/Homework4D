@@ -25,11 +25,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-        int count = 0;
         edit.setText("");
         CosmicWimpoutState firstInstance = new CosmicWimpoutState();
-        //firstInstance.rollAllDice(1);
-        //append text
+        firstInstance.rollAllDice(1);
+        firstInstance.endTurn(1);
+        edit.append("First Instance: " + firstInstance.toString() + " ");
         //firstInstance.rollSingleDice(1,2);
         //append text
         //firstInstance.endTurn(1);

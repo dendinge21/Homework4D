@@ -299,7 +299,7 @@ public class CosmicWimpoutState {
         }
         //END DICE COUNTING
 
-
+        /*
         //BEGIN FLAMING SUN FLASH CASES
         if(halfMoonCount == 2 && ourDice[5].diceState == 3){
             rollSingleDice(playerId, (halfMoonReRoll + 1));
@@ -332,7 +332,7 @@ public class CosmicWimpoutState {
             return 100;
         }
         //END FLAMING SUN FLASH CASE HANDLING
-
+*/
 
 
         //BEGIN NORMAL FLASH HANDLING
