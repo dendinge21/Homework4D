@@ -36,7 +36,7 @@ public class CosmicWimpoutState {
         whoseTurn = 1;
         numPlayers = 3;
         //for loop creates dice in all diceArray indices.
-        for(int i = 0; i<5; i++){
+        for(int i = 0; i < 5; i++){
             diceArray[i] = new Dice(i);
         }
         this.playerArrayList.add(new Player(1));
@@ -47,7 +47,7 @@ public class CosmicWimpoutState {
             this.diceArray[i].diceID = i+1;
             this.diceArray[i].diceState = 1;
         }
-        for(int i = 0; i<playerArrayList.size();i++){
+        for(int i = 0; i < playerArrayList.size();i++){
             //player instance variables
             this.playerArrayList.get(i).setPlayerID(i+1);
             this.playerArrayList.get(i).setPlayerScore(0);
@@ -112,12 +112,12 @@ public class CosmicWimpoutState {
 
     public boolean rollAllDice(int playerId){
         if(playerId == whoseTurn) {
-            //rolls all dice
-            diceArray[0].diceState = (int)(Math.random()*6);
-            diceArray[1].diceState = (int)(Math.random()*6);
-            diceArray[2].diceState = (int)(Math.random()*6);
-            diceArray[3].diceState = (int)(Math.random()*6);
-            diceArray[4].diceState = (int)(Math.random()*6);
+            //rolls all dice, need +1 to get values 1-6 not 0-5
+            diceArray[0].diceState = (int)(Math.random()*6 + 1);
+            diceArray[1].diceState = (int)(Math.random()*6 + 1);
+            diceArray[2].diceState = (int)(Math.random()*6 + 1);
+            diceArray[3].diceState = (int)(Math.random()*6 + 1);
+            diceArray[4].diceState = (int)(Math.random()*6 + 1);
             if(totalDiceScore(diceArray,playerId) != -1) {
                 turnScore = turnScore + totalDiceScore(diceArray,playerId);
             }
@@ -213,7 +213,7 @@ public class CosmicWimpoutState {
                 //Some action leading to the game ending happens here
                 return -1;
         }
-        else if(     ourDice[0].diceState == 2 &&
+        else if(ourDice[0].diceState == 2 &&
                 ourDice[1].diceState == 2 &&
                 ourDice[2].diceState == 2 &&
                 ourDice[3].diceState == 2 &&
@@ -221,8 +221,7 @@ public class CosmicWimpoutState {
             haveToReRoll = true;
             return 200;
         }
-
-        else if(     ourDice[0].diceState == 4 &&
+        else if(ourDice[0].diceState == 4 &&
                 ourDice[1].diceState == 4 &&
                 ourDice[2].diceState == 4 &&
                 ourDice[3].diceState == 4 &&
@@ -231,7 +230,7 @@ public class CosmicWimpoutState {
             haveToReRoll = true;
             return 400;
         }
-        else if(     ourDice[0].diceState == 5 &&
+        else if(ourDice[0].diceState == 5 &&
                 ourDice[1].diceState == 5 &&
                 ourDice[2].diceState == 5 &&
                 ourDice[3].diceState == 5 &&
@@ -240,7 +239,7 @@ public class CosmicWimpoutState {
            // turnScore = turnScore + 500;
             return 500;
         }
-        else if(     ourDice[0].diceState == 6 &&
+        else if(ourDice[0].diceState == 6 &&
                 ourDice[1].diceState == 6 &&
                 ourDice[2].diceState == 6 &&
                 ourDice[3].diceState == 6 &&
@@ -331,13 +330,14 @@ public class CosmicWimpoutState {
             rollSingleDice(playerId, (tenReRoll + 1));
             haveToReRoll = true;
             return 100;
-        }//END FLAMING SUN FLASH CASE HANDLING
+        }
+        //END FLAMING SUN FLASH CASE HANDLING
 
 
 
         //BEGIN NORMAL FLASH HANDLING
         if(halfMoonCount >= 3 && halfMoonCount < 5){
-            if(halfMoonCount ==4) {
+            if(halfMoonCount == 4) {
                 rollSingleDice(playerId, (halfMoonReRoll + 1));
                 if(halfMoonReRoll == 5){
                     rollSingleDice(playerId, 1);
@@ -350,14 +350,14 @@ public class CosmicWimpoutState {
             return 20;
         }
         if(triangleCount >= 3 && triangleCount < 5){
-            if(triangleCount ==4) {
+            if(triangleCount == 4) {
                 rollSingleDice(playerId, (triangleReRoll + 1));
                 haveToReRoll = true;
             }
             return 30;
         }
         if(boltCount >= 3 && boltCount < 5){
-            if(boltCount ==4){
+            if(boltCount == 4){
                 rollSingleDice(playerId, (boltReRoll + 1));
                 if(boltReRoll == 5){
                     rollSingleDice(playerId, 1);
@@ -371,7 +371,7 @@ public class CosmicWimpoutState {
         }
         if(fiveCount >= 3 && fiveCount < 5){
           //  turnScore = turnScore + 50;
-            if(fiveCount ==4){
+            if(fiveCount == 4){
                 rollSingleDice(playerId, (fiveReRoll + 1));
                 if(fiveReRoll == 5){
                     rollSingleDice(playerId, 1);
@@ -385,7 +385,7 @@ public class CosmicWimpoutState {
         }
         if(starCount >= 3 && starCount < 5){
           //  turnScore = turnScore + 60;
-            if(starCount ==4){
+            if(starCount == 4){
                 rollSingleDice(playerId, (starReRoll + 1));
                 if(starReRoll == 5){
                     rollSingleDice(playerId, 1);
@@ -399,7 +399,7 @@ public class CosmicWimpoutState {
         }
         if(tenCount >= 3 && tenCount < 5){
            // turnScore = turnScore + 100;
-            if(tenCount ==4){
+            if(tenCount == 4){
                 rollSingleDice(playerId, (tenReRoll + 1));
                 if(tenReRoll == 5){
                     rollSingleDice(playerId, 1);
@@ -435,14 +435,11 @@ public class CosmicWimpoutState {
         //END ONLY FLAMING SUN CASE
 
         //BEGIN WIMPOUT CASE
-        if(fiveCount ==0 && tenCount == 0 && ourDice[5].diceState != 3) {
+        if(fiveCount == 0 && tenCount == 0 && ourDice[5].diceState != 3) {
             return -1;
         }
         //END WIMPOUT CASE
 
         return 0;
     }
-
-
-
 }

@@ -10,6 +10,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     Button runTest;
     EditText edit;
+    //CosmicWimpoutState state;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,9 +25,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
+        int count = 0;
         edit.setText("");
         CosmicWimpoutState firstInstance = new CosmicWimpoutState();
-        CosmicWimpoutState secondInstance = new CosmicWimpoutState(firstInstance);
         //firstInstance.rollAllDice(1);
         //append text
         //firstInstance.rollSingleDice(1,2);
@@ -35,12 +36,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //append text
         //firstInstance.endGame(2);
         //edit the multi line text (append method)
-        CosmicWimpoutState thirdInstance = new CosmicWimpoutState();
+        CosmicWimpoutState secondInstance = new CosmicWimpoutState(firstInstance);
+        CosmicWimpoutState thirdInstance = new CosmicWimpoutState(secondInstance);
         CosmicWimpoutState fourthInstance = new CosmicWimpoutState(thirdInstance);
-        edit.append("Second Instance: " + secondInstance.toString() + " ");
-        edit.append("Fourth Instance: " + fourthInstance.toString() + " ");
-
-
-
+        //checking number of times runTest is pressed to get instance
+        if(runTest.isPressed()) {
+            count++;
+            switch (count){
+                case 1:
+                    edit.append("First Instance: " + firstInstance.toString() + " ");
+                    break;
+                case 2:
+                    edit.append("Second Instance: " + secondInstance.toString() + " ");
+                    break;
+                case 3:
+                    edit.append("Third Instance: " + thirdInstance.toString() + " ");
+                    break;
+                case 4:
+                    edit.append("Fourth Instance: " + fourthInstance.toString() + " ");
+                    break;
+            }
+        }
     }
 }
