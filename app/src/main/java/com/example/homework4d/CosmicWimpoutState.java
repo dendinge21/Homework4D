@@ -84,16 +84,16 @@ public class CosmicWimpoutState {
 
     @Override
     public String toString() {
-        return "Player Turn: " + this.whoseTurn  +
-                " Number of Players " + this.numPlayers  +
-                " Dice 1: " + this.diceArray[0].diceState +
-                " Dice 2: " + this.diceArray[1].diceState +
-                " Dice 3: " + this.diceArray[2].diceState +
-                " Dice 4: " + this.diceArray[3].diceState +
-                " Dice 5: " + this.diceArray[4].diceState +
-                " Player1 Score: " + playerArrayList.get(0).getPlayerScore() +
-                " Player2 Score: " + playerArrayList.get(1).getPlayerScore() +
-                " Player3 Score: " + playerArrayList.get(2).getPlayerScore();
+        return "Player Turn: " + this.whoseTurn  + "\n" +
+                " Number of Players " + this.numPlayers  + "\n" +
+                " Dice 1: " + this.diceArray[0].diceState + "\n" +
+                " Dice 2: " + this.diceArray[1].diceState + "\n" +
+                " Dice 3: " + this.diceArray[2].diceState + "\n" +
+                " Dice 4: " + this.diceArray[3].diceState + "\n" +
+                " Dice 5: " + this.diceArray[4].diceState + "\n" +
+                " Player1 Score: " + playerArrayList.get(0).getPlayerScore() + "\n" +
+                " Player2 Score: " + playerArrayList.get(1).getPlayerScore() + "\n" +
+                " Player3 Score: " + playerArrayList.get(2).getPlayerScore() + "\n" ;
     }
 
     /**
