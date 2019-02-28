@@ -147,12 +147,6 @@ public class CosmicWimpoutState {
      */
     public boolean endGame(int playerId){
         if(playerId == whoseTurn) {
-            if(totalDiceScore(diceArray,playerId) != -1) {
-                turnScore = turnScore + totalDiceScore(diceArray,playerId);
-            }
-            else{
-                turnScore = 0;
-            }
             return true;
         }
         else{
@@ -173,7 +167,7 @@ public class CosmicWimpoutState {
             if(playerId == 1){
                 playerArrayList.get(playerId - 1).setPlayerScore(currentScore + turnScore);
                 whoseTurn = 2;
-                turnScore = 0;
+                turnScore = 0; //reset turn score to 0 for next player
             }
             else if(playerId == 2){
                 playerArrayList.get(playerId - 1).setPlayerScore(currentScore + turnScore);
@@ -203,7 +197,14 @@ public class CosmicWimpoutState {
     public boolean rollSingleDice(int playerId, int id ){
         if(playerId == whoseTurn) {
             diceArray[id-1].rollMe();
+            if(totalDiceScore(diceArray,playerId) != -1) {
+                turnScore = turnScore + totalDiceScore(diceArray,playerId);
+            }
+            else{
+                turnScore = 0;
+                this.endTurn(playerId);
 
+            }
             return true;
         }
         else{
