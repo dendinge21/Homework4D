@@ -29,7 +29,6 @@ public class CosmicWimpoutState {
     private boolean canReRoll = true;
     private boolean haveToReRoll = false;
     private Dice diceArray[] = new Dice[5];
-    private String faceName;
     private ArrayList<Player> playerArrayList = new ArrayList();
 
     private int halfMoonReRoll;
@@ -89,10 +88,9 @@ public class CosmicWimpoutState {
     }
 
     /**
-    *toString(); describes the state of a game as a string, prints all the values
-     * of all the variables; add @Override tag
-    */
-
+     * toString prints the values of all of the variables in the game state
+     * @return the converted string
+     */
     @Override
     public String toString() {
         String dice0Val;
@@ -113,20 +111,12 @@ public class CosmicWimpoutState {
                 " Player3 Score: " + playerArrayList.get(2).getPlayerScore() + "\n" ;
     }
 
+
     /**
-     add methods for each of the actions - each should have a boolean return value;
-     when called, each method should verify the move is a legal move for the current
-     game state
-     return false; if its illegal
-     return true; if its legal (modify the game state if its true \
-     pass in player as a parameter
-
-     re-Rolls
-     Roll Dice
-     End Game
-     End Turn
+     * Rolls all five dice at once
+     * @param playerId
+     * @return return true if legal move
      */
-
     public boolean rollAllDice(int playerId){
         if(playerId == whoseTurn) {
             //rolls all dice, need +1 to get values 1-6 not 0-5
@@ -149,6 +139,12 @@ public class CosmicWimpoutState {
         }
 
     }
+
+    /**
+     * endGame - will quit the game and return back to main menu
+     * @param playerId
+     * @return true if legal move
+     */
     public boolean endGame(int playerId){
         if(playerId == whoseTurn) {
             return true;
@@ -158,6 +154,13 @@ public class CosmicWimpoutState {
             return false;
         }
     }
+
+    /**
+     * endTurn - if player chooses to end turn, add up their turn score to their
+     * overall game score, switch to next player
+     * @param playerId
+     * @return true if legal move
+     */
     public boolean endTurn(int playerId) {
         if(playerId == whoseTurn) {
             int currentScore = playerArrayList.get(playerId-1).getPlayerScore();
@@ -183,6 +186,14 @@ public class CosmicWimpoutState {
             return false;
         }
     }
+
+    /**
+     * Rolls only a single dice
+     * Can only be called once the player knows what the previous roll was
+     * @param playerId
+     * @param id - which dice the player wants to roll
+     * @return true if valud
+     */
     public boolean rollSingleDice(int playerId, int id ){
         if(playerId == whoseTurn) {
             diceArray[id-1].rollMe();
@@ -193,33 +204,15 @@ public class CosmicWimpoutState {
             return false;
         }
     }
-    public String setFaces(int id){
-        if(diceArray[id].diceState == 1){
-            faceName = "ten";
-        }
-        else if(diceArray[id].diceState == 2){
-            faceName = "half moons";
-        }
-        else if(diceArray[id].diceState == 3){
-            if(id == 5) {
-                faceName = "flaming sun";
-            }
-            else {
-                faceName = "triangles";
-            }
-        }
-        else if(diceArray[id].diceState == 4){
-            faceName = "bolts";
-        }
-        else if(diceArray[id].diceState == 5){
-            faceName = "five";
-        }
-        else if(diceArray[id].diceState == 6){
-            faceName = "stars";
-        }
-        return faceName;
-    }
 
+    /**
+     * Totals the scores of all possible rolls, as well has reroll for the
+     * player when they are required. 
+     *
+     * @param ourDice
+     * @param playerId
+     * @return
+     */
     public int totalDiceScore(Dice[] ourDice, int playerId){
         //SUPERNOVA AND FREIGHT TRAIN CHECKING
         if(     ourDice[0].diceState == 1 &&
