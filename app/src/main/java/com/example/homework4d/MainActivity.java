@@ -29,21 +29,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         CosmicWimpoutState firstInstance = new CosmicWimpoutState();
         CosmicWimpoutState secondInstance = new CosmicWimpoutState(firstInstance);
 
-        firstInstance.rollSingleDice(1,2);
-        firstInstance.rollSingleDice(1,4);
-        firstInstance.rollSingleDice(1,1);
-        edit.append("Player one has rolled, " + firstInstance.getDiceState(0) + ", "
+        int whoRolled = firstInstance.getWhoseTurn();
+        firstInstance.rollSingleDice(whoRolled,2);
+        firstInstance.rollSingleDice(whoRolled,4);
+        firstInstance.rollSingleDice(whoRolled,1);
+        edit.append("Player " + whoRolled + " has rolled, " + firstInstance.getDiceState(0) + ", "
                 + firstInstance.getDiceState(1) + " and "
                 + firstInstance.getDiceState(3) + "\n");
 
-        firstInstance.rollAllDice(1);
-        edit.append("Player one has rolled, " + firstInstance.getDiceState(0) + ", "
+        int nowWhoRolls = firstInstance.getWhoseTurn();
+        firstInstance.rollAllDice(nowWhoRolls);
+        edit.append("Player " + nowWhoRolls + " has rolled, " + firstInstance.getDiceState(0) + ", "
             + firstInstance.getDiceState(1) + ", " + firstInstance.getDiceState(2) +
                 ", " + firstInstance.getDiceState(3) + ", and  " +
                 firstInstance.getDiceState(4) + "\n");
 
         int whoseTurnBefore = firstInstance.getWhoseTurn();
-        firstInstance.endTurn(1);
+        firstInstance.endTurn(whoseTurnBefore);
         int whoseTurn = firstInstance.getWhoseTurn();
         edit.append("Player " + whoseTurnBefore + " has ended their turn, it is now" +
                 " Player " + whoseTurn +" turn\n");
