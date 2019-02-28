@@ -147,6 +147,12 @@ public class CosmicWimpoutState {
      */
     public boolean endGame(int playerId){
         if(playerId == whoseTurn) {
+            if(totalDiceScore(diceArray,playerId) != -1) {
+                turnScore = turnScore + totalDiceScore(diceArray,playerId);
+            }
+            else{
+                turnScore = 0;
+            }
             return true;
         }
         else{
@@ -197,6 +203,7 @@ public class CosmicWimpoutState {
     public boolean rollSingleDice(int playerId, int id ){
         if(playerId == whoseTurn) {
             diceArray[id-1].rollMe();
+
             return true;
         }
         else{
@@ -361,6 +368,7 @@ public class CosmicWimpoutState {
         }
         //END FLAMING SUN FLASH CASE HANDLING
      */
+
 
 
         //BEGIN NORMAL FLASH HANDLING

@@ -27,6 +27,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         edit.setText("");
         CosmicWimpoutState firstInstance = new CosmicWimpoutState();
+        CosmicWimpoutState secondInstance = new CosmicWimpoutState(firstInstance);
+        firstInstance.rollSingleDice(1,2);
+        firstInstance.rollSingleDice(1,4);
+        firstInstance.rollSingleDice(1,1);
+        edit.append("Player one has rolled, " + firstInstance.getDiceState(0) + ", "
+                + firstInstance.getDiceState(1) + " and "
+                + firstInstance.getDiceState(3) + "\n");
         firstInstance.rollAllDice(1);
         edit.append("Player one has rolled, " + firstInstance.getDiceState(0) + ", "
             + firstInstance.getDiceState(1) + ", " + firstInstance.getDiceState(2) +
@@ -37,11 +44,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         int whoseTurn = firstInstance.getWhoseTurn();
         edit.append("Player " + whoseTurnBefore + " has ended their turn, it is now" +
                 " Player " + whoseTurn +" turn\n");
-        //firstInstance.rollSingleDice(1,2);
-        //append text
         firstInstance.endGame(2);
         edit.append("Player " + whoseTurn + " ended the game.\n");
-        CosmicWimpoutState secondInstance = new CosmicWimpoutState(firstInstance);
         CosmicWimpoutState thirdInstance = new CosmicWimpoutState(secondInstance);
         CosmicWimpoutState fourthInstance = new CosmicWimpoutState(thirdInstance);
         edit.append("Second Instance: " + secondInstance.toString() + " ");
