@@ -32,12 +32,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             + firstInstance.getDiceState(1) + ", " + firstInstance.getDiceState(2) +
                 ", " + firstInstance.getDiceState(3) + ", and  " +
                 firstInstance.getDiceState(4) + "\n");
+        int whoseTurnBefore = firstInstance.getWhoseTurn();
         firstInstance.endTurn(1);
-        edit.append("Player 1 has ended their turn, it is now player 2's turn\n");
+        int whoseTurn = firstInstance.getWhoseTurn();
+        edit.append("Player " + whoseTurnBefore + " has ended their turn, it is now" +
+                " Player " + whoseTurn +" turn\n");
         //firstInstance.rollSingleDice(1,2);
         //append text
-        //firstInstance.endGame(2);
-        //edit the multi line text (append method)
+        firstInstance.endGame(2);
+        edit.append("Player " + whoseTurn + " ended the game.\n");
         CosmicWimpoutState secondInstance = new CosmicWimpoutState(firstInstance);
         CosmicWimpoutState thirdInstance = new CosmicWimpoutState(secondInstance);
         CosmicWimpoutState fourthInstance = new CosmicWimpoutState(thirdInstance);
