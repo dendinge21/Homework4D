@@ -1,5 +1,12 @@
 package com.example.homework4d;
 
+/**
+ * Player
+ * Player is essentially what will be in our human play and computer play
+ * classes in the game framework. We only care about which player and their score
+ *
+ * @Authors: Olivia Dendinger, Sam Lemly, David Campbell, and Kayla Moore
+ */
 public class Player {
     private int playerID;
     private int score;

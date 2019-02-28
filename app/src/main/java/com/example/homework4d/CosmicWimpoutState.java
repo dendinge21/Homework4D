@@ -1,5 +1,12 @@
 package com.example.homework4d;
 
+/**
+ * This class will be our local game state. It initilizes the default
+ * game state as well can be called to make a copy of the current game state
+ *
+ * @Authors: Olivia Dendinger, Sam Lemly, David Campbell, and Kayla Moore
+ *
+ */
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Random;
@@ -275,11 +282,17 @@ public class CosmicWimpoutState {
                 if(tenCount == 4){
                     tenReRoll=i;
                 }
+                else if(tenCount == 2){
+                    tenReRoll = i+1;
+                }
             }
             if(ourDice[i].getDiceState() == 2){
                 halfMoonCount++;
                 if(halfMoonCount == 4){
                     halfMoonReRoll=i;
+                }
+                else if(halfMoonCount == 2){
+                    halfMoonReRoll = i+1;
                 }
             }
             if(ourDice[i].getDiceState() == 3 && ourDice[i].diceID != 5){
@@ -287,11 +300,17 @@ public class CosmicWimpoutState {
                 if(triangleCount == 4){
                     triangleReRoll=i;
                 }
+                else if(triangleCount == 2){
+                    triangleReRoll = i+1;
+                }
             }
             if(ourDice[i].getDiceState() == 4){
                 boltCount++;
                 if(boltCount == 4){
                     boltReRoll=i;
+                }
+                else if(boltCount == 2){
+                    boltReRoll = i+1;
                 }
             }
             if(ourDice[i].getDiceState() == 5){
@@ -299,11 +318,17 @@ public class CosmicWimpoutState {
                 if(fiveCount == 4){
                     fiveReRoll=i;
                 }
+                else if(fiveCount == 2){
+                    fiveReRoll = i+1;
+                }
             }
             if(ourDice[i].getDiceState() == 6){
                 starCount++;
                 if(starCount == 4){
                     starReRoll=i;
+                }
+                else if(starCount == 2){
+                    starReRoll = i+1;
                 }
             }
         }
@@ -312,7 +337,7 @@ public class CosmicWimpoutState {
         /*
         //BEGIN FLAMING SUN FLASH CASES
         if(halfMoonCount == 2 && ourDice[5].diceState == 3){
-            rollSingleDice(playerId, (halfMoonReRoll + 1));
+            rollSingleDice(playerId, (star));
             haveToReRoll = true;
             return 20;
         }
@@ -342,7 +367,7 @@ public class CosmicWimpoutState {
             return 100;
         }
         //END FLAMING SUN FLASH CASE HANDLING
-*/
+     */
 
 
         //BEGIN NORMAL FLASH HANDLING

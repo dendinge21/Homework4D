@@ -1,6 +1,11 @@
 package com.example.homework4d;
 
-
+/**
+ * Dice allows us to access the state of the dice after it has been rolled.
+ * as well as retrieve which dice we are looking at
+ *
+ * @Authors: Olivia Dendinger, Sam Lemly, David Campbell, and Kayla Moore
+ */
 public class Dice {
 
     protected int diceState;
