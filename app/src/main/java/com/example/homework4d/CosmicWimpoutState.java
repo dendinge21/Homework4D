@@ -207,7 +207,7 @@ public class CosmicWimpoutState {
 
     /**
      * Totals the scores of all possible rolls, as well has reroll for the
-     * player when they are required. 
+     * player when they are required.
      *
      * @param ourDice
      * @param playerId
@@ -469,5 +469,13 @@ public class CosmicWimpoutState {
         //END WIMPOUT CASE
 
         return 0;
+    }
+
+    public String getDiceState(int diceId){
+       return this.diceArray[diceId].getValAsString();
+    }
+
+    public int getWhoseTurn(){
+        return this.whoseTurn;
     }
 }

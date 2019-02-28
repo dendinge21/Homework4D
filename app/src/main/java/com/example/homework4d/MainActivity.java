@@ -28,11 +28,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         edit.setText("");
         CosmicWimpoutState firstInstance = new CosmicWimpoutState();
         firstInstance.rollAllDice(1);
+        edit.append("Player one has rolled, " + firstInstance.getDiceState(0) + ", "
+            + firstInstance.getDiceState(1) + ", " + firstInstance.getDiceState(2) +
+                ", " + firstInstance.getDiceState(3) + ", and  " +
+                firstInstance.getDiceState(4) + "\n");
         firstInstance.endTurn(1);
-        edit.append("First Instance: " + firstInstance.toString() + " ");
+        edit.append("Player 1 has ended their turn, it is now player 2's turn\n");
         //firstInstance.rollSingleDice(1,2);
-        //append text
-        //firstInstance.endTurn(1);
         //append text
         //firstInstance.endGame(2);
         //edit the multi line text (append method)
