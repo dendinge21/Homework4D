@@ -25,36 +25,51 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-        edit.setText("");
+        edit.setText(""); // clear any text user entered before
+
+        //create an instance of the game state and copy it
         CosmicWimpoutState firstInstance = new CosmicWimpoutState();
         CosmicWimpoutState secondInstance = new CosmicWimpoutState(firstInstance);
 
-        int whoRolled = firstInstance.getWhoseTurn();
+        int whoRolled = firstInstance.getWhoseTurn(); //whose turn is it
+        //roll 3 individual die to test that this method works
         firstInstance.rollSingleDice(whoRolled,2);
         firstInstance.rollSingleDice(whoRolled,4);
         firstInstance.rollSingleDice(whoRolled,1);
+        //append text to show what they rolled
         edit.append("Player " + whoRolled + " has rolled, " + firstInstance.getDiceState(0) + ", "
                 + firstInstance.getDiceState(1) + " and "
                 + firstInstance.getDiceState(3) + "\n");
 
+        //get whose turn it is now cause they could of wimped out
         int nowWhoRolls = firstInstance.getWhoseTurn();
+        //that player rolls all the die
         firstInstance.rollAllDice(nowWhoRolls);
+        //edit text to show what they rolled
         edit.append("Player " + nowWhoRolls + " has rolled, " + firstInstance.getDiceState(0) + ", "
             + firstInstance.getDiceState(1) + ", " + firstInstance.getDiceState(2) +
                 ", " + firstInstance.getDiceState(3) + ", and  " +
                 firstInstance.getDiceState(4) + "\n");
 
+        //get whose turn it is
         int whoseTurnBefore = firstInstance.getWhoseTurn();
+        //that player ends the turn
         firstInstance.endTurn(whoseTurnBefore);
+        //get whose turn it is after they end it
         int whoseTurn = firstInstance.getWhoseTurn();
+        //append text to show whose turn it is now
         edit.append("Player " + whoseTurnBefore + " has ended their turn, it is now" +
                 " Player " + whoseTurn +" turn\n");
 
+        //player ends game
         firstInstance.endGame(2);
         edit.append("Player " + whoseTurn + " ended the game.\n");
 
+        //create another instance of the game state and another copy
         CosmicWimpoutState thirdInstance = new CosmicWimpoutState();
         CosmicWimpoutState fourthInstance = new CosmicWimpoutState(thirdInstance);
+        
+        //show that the copies are the same
         edit.append("Second Instance: " + secondInstance.toString() + " ");
         edit.append("Fourth Instance: " + fourthInstance.toString() + " ");
 
