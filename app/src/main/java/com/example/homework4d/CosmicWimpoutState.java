@@ -337,22 +337,22 @@ public class CosmicWimpoutState {
 
 
         //BEGIN FLAMING SUN FLASH CASES
-        if(halfMoonCount == 2 && ourDice[5].diceState == 3){
+        if(halfMoonCount == 2 && ourDice[4].diceState == 3){
             return 20;
         }
-        if(triangleCount == 2 && ourDice[5].diceState == 3){
+        if(triangleCount == 2 && ourDice[4].diceState == 3){
             return 30;
         }
-        if(boltCount == 2 && ourDice[5].diceState == 3){
+        if(boltCount == 2 && ourDice[4].diceState == 3){
             return 40;
         }
-        if(fiveCount == 2 && ourDice[5].diceState == 3){
+        if(fiveCount == 2 && ourDice[4].diceState == 3){
             return 50;
         }
-        if(starCount == 2 && ourDice[5].diceState == 3){
+        if(starCount == 2 && ourDice[4].diceState == 3){
             return 60;
         }
-        if(tenCount == 2 && ourDice[5].diceState == 3){
+        if(tenCount == 2 && ourDice[4].diceState == 3){
             return 100;
         }
         //END FLAMING SUN FLASH CASE HANDLING
@@ -454,13 +454,13 @@ public class CosmicWimpoutState {
         //END 10 & 5 COUNTING CASES
 
         //BEGIN ONLY FLAMING SUN CASE
-        if(tenCount == 0 && fiveCount == 0 && ourDice[5].diceState == 3){
+        if(tenCount == 0 && fiveCount == 0 && ourDice[4].diceState == 3){
             return 10;
         }
         //END ONLY FLAMING SUN CASE
 
         //BEGIN WIMPOUT CASE
-        if(fiveCount == 0 && tenCount == 0 && ourDice[5].diceState != 3) {
+        if(fiveCount == 0 && tenCount == 0 && ourDice[4].diceState != 3) {
             return -1;
         }
         //END WIMPOUT CASE

@@ -26,7 +26,7 @@ public class Dice {
     }
 
     public void rollMe(){
-        this.diceState = (int)(Math.random()*6);
+        this.diceState = (int)(Math.random()*6 + 1);
     }
 
     public String getValAsString(){
