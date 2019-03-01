@@ -1,5 +1,15 @@
 package com.example.homework4d;
 
+/**
+ * MainActivity
+ *
+ * This class is our MainActivity where each instance of the GameState will
+ * be created.
+ *
+ * @Authors: Olivia Dendinger, Sam Lemly, David Campbell, and Kayla Moore
+ *
+ */
+
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -8,15 +18,16 @@ import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
+    //declaring Views
     Button runTest;
     EditText edit;
-    //CosmicWimpoutState state;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //initializing runTest and edit
         runTest = findViewById(R.id.runTestButton);
         runTest.setOnClickListener(this);
 
@@ -72,8 +83,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //show that the copies are the same
         edit.append("Second Instance: " + secondInstance.toString() + " ");
         edit.append("Fourth Instance: " + fourthInstance.toString() + " ");
-
-
-
     }
 }

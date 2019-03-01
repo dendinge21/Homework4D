@@ -1,15 +1,15 @@
 package com.example.homework4d;
 
 /**
- * This class will be our local game state. It initilizes the default
+ * CosmicWimpoutState
+ * This class will be our local game state. It initializes the default
  * game state as well can be called to make a copy of the current game state
  *
  * @Authors: Olivia Dendinger, Sam Lemly, David Campbell, and Kayla Moore
  *
  */
-import java.lang.reflect.Array;
+
 import java.util.ArrayList;
-import java.util.Random;
 
 public class CosmicWimpoutState {
     //instance variables that should encompass all the information
@@ -23,6 +23,7 @@ public class CosmicWimpoutState {
     // to satisfy Serializable interface
     private static final long serialVersionUID = 12345678910L;
 
+    //initializing game variables
     private int whoseTurn;
     private int numPlayers;
     private int turnScore = 0;
@@ -31,6 +32,7 @@ public class CosmicWimpoutState {
     private Dice diceArray[] = new Dice[5];
     private ArrayList<Player> playerArrayList = new ArrayList();
 
+    //initializing dice re-roll variables
     private int halfMoonReRoll;
     private int triangleReRoll;
     private int boltReRoll;
@@ -42,6 +44,9 @@ public class CosmicWimpoutState {
     }
 
 
+    /**
+     * CosmicWimpoutState default constructor
+     */
     public CosmicWimpoutState(){
         whoseTurn = 1;
         numPlayers = 3;
@@ -66,19 +71,20 @@ public class CosmicWimpoutState {
 
     }
 
-    //implement a deep copy
+    /**
+     * CosmicWimpoutState constructor that creates a deep copy
+     * @param orig
+     */
     public CosmicWimpoutState(CosmicWimpoutState orig){
 
         whoseTurn = orig.whoseTurn;
 
-        //Dice diceArray[] = new Dice[5];
         for(int i =0; i < diceArray.length; i++){
             this.diceArray[i] = new Dice(i+1);
             this.diceArray[i].diceID = orig.diceArray[i].diceID;
             this.diceArray[i].diceState = orig.diceArray[i].diceState;
         }
 
-       // ArrayList<Player> playerArrayList = new ArrayList();
         for(int i=0; i < orig.playerArrayList.size();i++){
             this.playerArrayList.add(new Player(i+1));
             this.playerArrayList.get(i).setPlayerID(orig.playerArrayList.get(i).getPlayerID());
@@ -93,11 +99,6 @@ public class CosmicWimpoutState {
      */
     @Override
     public String toString() {
-        String dice0Val;
-        String dice1Val;
-        String dice2Val;
-        String dice3Val;
-        String dice4Val;
 
         return "Player Turn: " + this.whoseTurn  + "\n" +
                 " Number of Players " + this.numPlayers  + "\n" +
@@ -111,7 +112,6 @@ public class CosmicWimpoutState {
                 " Player3 Score: " + playerArrayList.get(2).getPlayerScore() + "\n" ;
     }
 
-
     /**
      * Rolls all five dice at once
      * @param playerId
@@ -119,7 +119,7 @@ public class CosmicWimpoutState {
      */
     public boolean rollAllDice(int playerId){
         if(playerId == whoseTurn) {
-            //rolls all dice, need +1 to get values 1-6 not 0-5
+            //rolls all dice giving each a value 1-6
             diceArray[0].diceState = (int)(Math.random()*6 + 1);
             diceArray[1].diceState = (int)(Math.random()*6 + 1);
             diceArray[2].diceState = (int)(Math.random()*6 + 1);
@@ -192,7 +192,7 @@ public class CosmicWimpoutState {
      * Can only be called once the player knows what the previous roll was
      * @param playerId
      * @param id - which dice the player wants to roll
-     * @return true if valud
+     * @return true if valid
      */
     public boolean rollSingleDice(int playerId, int id ){
         if(playerId == whoseTurn) {
@@ -219,7 +219,7 @@ public class CosmicWimpoutState {
      *
      * @param ourDice
      * @param playerId
-     * @return
+     * @returns an int
      */
     public int totalDiceScore(Dice[] ourDice, int playerId){
         //SUPERNOVA AND FREIGHT TRAIN CHECKING
@@ -358,8 +358,6 @@ public class CosmicWimpoutState {
         //END FLAMING SUN FLASH CASE HANDLING
 
 
-
-
         //BEGIN NORMAL FLASH HANDLING
         if(halfMoonCount >= 3 && halfMoonCount < 5){
             if(halfMoonCount == 4) {
@@ -437,7 +435,6 @@ public class CosmicWimpoutState {
             return 100;
         }
         //END NORMAL FLASH HANDLING
-
 
         //BEGIN 10 & 5 COUNTING CASES
         if(tenCount != 0){

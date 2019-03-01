@@ -1,6 +1,8 @@
 package com.example.homework4d;
 
 /**
+ * Dice
+ *
  * Dice allows us to access the state of the dice after it has been rolled.
  * as well as retrieve which dice we are looking at
  *
