@@ -48,19 +48,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         firstInstance.rollSingleDie(whoRolled,4);
         firstInstance.rollSingleDie(whoRolled,1);
         //append text to show what they rolled
-        edit.append("Player " + whoRolled + " has rolled, " + firstInstance.getDiceState(0) + ", "
-                + firstInstance.getDiceState(1) + " and "
-                + firstInstance.getDiceState(3) + "\n");
+        edit.append("Player " + whoRolled + " has rolled, " + firstInstance.getDieState(0) + ", "
+                + firstInstance.getDieState(1) + " and "
+                + firstInstance.getDieState(3) + "\n");
 
         //get whose turn it is now cause they could of wimped out
         int nowWhoRolls = firstInstance.getWhoseTurn();
         //that player rolls all the die
         firstInstance.rollAllDice(nowWhoRolls);
         //edit text to show what they rolled
-        edit.append("Player " + nowWhoRolls + " has rolled, " + firstInstance.getDiceState(0) + ", "
-            + firstInstance.getDiceState(1) + ", " + firstInstance.getDiceState(2) +
-                ", " + firstInstance.getDiceState(3) + ", and  " +
-                firstInstance.getDiceState(4) + "\n");
+        edit.append("Player " + nowWhoRolls + " has rolled, " + firstInstance.getDieState(0) + ", "
+            + firstInstance.getDieState(1) + ", " + firstInstance.getDieState(2) +
+                ", " + firstInstance.getDieState(3) + ", and  " +
+                firstInstance.getDieState(4) + "\n");
 
         //get whose turn it is
         int whoseTurnBefore = firstInstance.getWhoseTurn();
