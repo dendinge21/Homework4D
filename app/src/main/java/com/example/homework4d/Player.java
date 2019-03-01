@@ -9,6 +9,7 @@ package com.example.homework4d;
  * @Authors: Olivia Dendinger, Sam Lemly, David Campbell, and Kayla Moore
  */
 public class Player {
+
     //initializing variables
     private int playerID;
     private int score;
