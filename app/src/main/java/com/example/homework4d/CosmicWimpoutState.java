@@ -13,15 +13,9 @@ package com.example.homework4d;
 import java.util.ArrayList;
 
 public class CosmicWimpoutState {
-    //instance variables that should encompass all the information
-    /**
-     * IDEAS
-     * Whose turn it is? (int?)
-     * Current score of each player (int)
-     * current state of dice (create a dice class?) // that has a different int for every face?
-     *
-     */
-    // to satisfy Serializable interface
+    //instance variables that encompass all needed information
+
+    //to satisfy Serializable interface
     private static final long serialVersionUID = 12345678910L;
 
     //initializing game variables
@@ -55,6 +49,7 @@ public class CosmicWimpoutState {
         this.playerArrayList.add(new Player(1));
         this.playerArrayList.add(new Player(2));
         this.playerArrayList.add(new Player(3));
+
         for(int i = 0; i < diceArray.length; i++){
             //initialize all dice
             this.diceArray[i].dieID = i+1;
@@ -65,8 +60,6 @@ public class CosmicWimpoutState {
             this.playerArrayList.get(i).setPlayerID(i+1);
             this.playerArrayList.get(i).setPlayerScore(0);
         }
-
-
     }
 
     /**
@@ -88,7 +81,6 @@ public class CosmicWimpoutState {
             this.playerArrayList.get(i).setPlayerID(orig.playerArrayList.get(i).getPlayerID());
             this.playerArrayList.get(i).setPlayerScore(orig.playerArrayList.get(i).getPlayerScore());
         }
-
     }
 
     /**
@@ -133,7 +125,6 @@ public class CosmicWimpoutState {
             // illegal move
             return false;
         }
-
     }
 
     /**
@@ -264,7 +255,7 @@ public class CosmicWimpoutState {
         }
         //END SUPERNOVA AND FREIGHT TRAIN CHECKING
 
-
+        //count variables for the dice
         int halfMoonCount = 0;
         int triangleCount=0;
         int boltCount=0;

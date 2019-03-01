@@ -22,6 +22,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button runTest;
     EditText edit;
 
+    /**
+     * onCreate method is the first method called when the app runs
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +38,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         edit = findViewById(R.id.editText);
     }
 
+    /**
+     * onClick is a method implemented from the View.OnClickListener interface
+     * @param v
+     */
     @Override
     public void onClick(View v) {
         edit.setText(""); // clear any text user entered before
