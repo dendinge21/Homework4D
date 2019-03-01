@@ -2,6 +2,7 @@ package com.example.homework4d;
 
 /**
  * CosmicWimpoutState
+ *
  * This class will be our local game state. It initializes the default
  * game state as well can be called to make a copy of the current game state
  *
@@ -39,10 +40,6 @@ public class CosmicWimpoutState {
     private int fiveReRoll;
     private int starReRoll;
     private int tenReRoll;
-    enum dice{
-        TENS, MOONS, TRIANGLES, BOLTS, FIVES, STARS, FLAMINGSUN
-    }
-
 
     /**
      * CosmicWimpoutState default constructor
