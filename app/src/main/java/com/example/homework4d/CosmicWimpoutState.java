@@ -470,7 +470,7 @@ public class CosmicWimpoutState {
         return 0;
     }
 
-    public String getDieState(int diceId){
+    public String getDiceVal(int diceId){
        return this.diceArray[diceId].getValAsString();
     }
 

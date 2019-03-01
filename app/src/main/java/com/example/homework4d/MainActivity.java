@@ -43,31 +43,39 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         CosmicWimpoutState secondInstance = new CosmicWimpoutState(firstInstance);
 
         int whoRolled = firstInstance.getWhoseTurn(); //whose turn is it
-        //roll 3 individual die to test that this method works
+
+
+        //roll 3 individual die to test that the rollSingleDie() method works
         firstInstance.rollSingleDie(whoRolled,2);
         firstInstance.rollSingleDie(whoRolled,4);
         firstInstance.rollSingleDie(whoRolled,1);
+
+
         //append text to show what they rolled
-        edit.append("Player " + whoRolled + " has rolled, " + firstInstance.getDieState(0) + ", "
-                + firstInstance.getDieState(1) + " and "
-                + firstInstance.getDieState(3) + "\n");
+        edit.append("Player " + whoRolled + " has rolled, " + firstInstance.getDiceVal(0) + ", "
+                + firstInstance.getDiceVal(1) + " and "
+                + firstInstance.getDiceVal(3) + "\n");
+
 
         //get whose turn it is now cause they could of wimped out
         int nowWhoRolls = firstInstance.getWhoseTurn();
         //that player rolls all the die
         firstInstance.rollAllDice(nowWhoRolls);
         //edit text to show what they rolled
-        edit.append("Player " + nowWhoRolls + " has rolled, " + firstInstance.getDieState(0) + ", "
-            + firstInstance.getDieState(1) + ", " + firstInstance.getDieState(2) +
-                ", " + firstInstance.getDieState(3) + ", and  " +
-                firstInstance.getDieState(4) + "\n");
+        edit.append("Player " + nowWhoRolls + " has rolled, " + firstInstance.getDiceVal(0) + ", "
+            + firstInstance.getDiceVal(1) + ", " + firstInstance.getDiceVal(2) +
+                ", " + firstInstance.getDiceVal(3) + ", and  " +
+                firstInstance.getDiceVal(4) + "\n");
 
         //get whose turn it is
         int whoseTurnBefore = firstInstance.getWhoseTurn();
+
         //that player ends the turn
         firstInstance.endTurn(whoseTurnBefore);
+
         //get whose turn it is after they end it
         int whoseTurn = firstInstance.getWhoseTurn();
+
         //append text to show whose turn it is now
         edit.append("Player " + whoseTurnBefore + " has ended their turn, it is now" +
                 " Player " + whoseTurn +" turn\n");
