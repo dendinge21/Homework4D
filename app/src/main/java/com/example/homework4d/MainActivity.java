@@ -52,24 +52,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         int whoRolled = firstInstance.getWhoseTurn(); //whose turn is it
 
-
         //roll 3 individual die to test that the rollSingleDie() method works
         firstInstance.rollSingleDie(whoRolled,2);
         firstInstance.rollSingleDie(whoRolled,4);
         firstInstance.rollSingleDie(whoRolled,1);
-
 
         //append text to show what they rolled
         edit.append("Player " + whoRolled + " has rolled, " + firstInstance.getDiceVal(0) + ", "
                 + firstInstance.getDiceVal(1) + " and "
                 + firstInstance.getDiceVal(3) + "\n");
 
-
-        //get whose turn it is now cause they could of wimped out
+        /*get whose turn it is now cause they could of wimped out, if the player wimped out
+        * then it will switch to the next player's turn*/
         int nowWhoRolls = firstInstance.getWhoseTurn();
         //that player rolls all the die
         firstInstance.rollAllDice(nowWhoRolls);
-        //edit text to show what they rolled
+        //edit append text to show what they rolled
         edit.append("Player " + nowWhoRolls + " has rolled, " + firstInstance.getDiceVal(0) + ", "
             + firstInstance.getDiceVal(1) + ", " + firstInstance.getDiceVal(2) +
                 ", " + firstInstance.getDiceVal(3) + ", and  " +
