@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         firstInstance.endGame(2);
         edit.append("Player " + whoseTurn + " ended the game.\n");
 
-        CosmicWimpoutState thirdInstance = new CosmicWimpoutState(secondInstance);
+        CosmicWimpoutState thirdInstance = new CosmicWimpoutState();
         CosmicWimpoutState fourthInstance = new CosmicWimpoutState(thirdInstance);
         edit.append("Second Instance: " + secondInstance.toString() + " ");
         edit.append("Fourth Instance: " + fourthInstance.toString() + " ");
