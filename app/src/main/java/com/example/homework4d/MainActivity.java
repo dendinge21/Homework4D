@@ -44,9 +44,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         int whoRolled = firstInstance.getWhoseTurn(); //whose turn is it
         //roll 3 individual die to test that this method works
-        firstInstance.rollSingleDice(whoRolled,2);
-        firstInstance.rollSingleDice(whoRolled,4);
-        firstInstance.rollSingleDice(whoRolled,1);
+        firstInstance.rollSingleDie(whoRolled,2);
+        firstInstance.rollSingleDie(whoRolled,4);
+        firstInstance.rollSingleDie(whoRolled,1);
         //append text to show what they rolled
         edit.append("Player " + whoRolled + " has rolled, " + firstInstance.getDiceState(0) + ", "
                 + firstInstance.getDiceState(1) + " and "
