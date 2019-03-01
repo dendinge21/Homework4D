@@ -335,40 +335,28 @@ public class CosmicWimpoutState {
         }
         //END DICE COUNTING
 
-        /*
+
         //BEGIN FLAMING SUN FLASH CASES
         if(halfMoonCount == 2 && ourDice[5].diceState == 3){
-            rollSingleDice(playerId, (star));
-            haveToReRoll = true;
             return 20;
         }
         if(triangleCount == 2 && ourDice[5].diceState == 3){
-            rollSingleDice(playerId, (triangleReRoll + 1));
-            haveToReRoll = true;
             return 30;
         }
         if(boltCount == 2 && ourDice[5].diceState == 3){
-            rollSingleDice(playerId, (boltReRoll + 1));
-            haveToReRoll = true;
             return 40;
         }
         if(fiveCount == 2 && ourDice[5].diceState == 3){
-            rollSingleDice(playerId, (fiveReRoll + 1));
-            haveToReRoll = true;
             return 50;
         }
         if(starCount == 2 && ourDice[5].diceState == 3){
-            rollSingleDice(playerId, (starReRoll + 1));
-            haveToReRoll = true;
             return 60;
         }
         if(tenCount == 2 && ourDice[5].diceState == 3){
-            rollSingleDice(playerId, (tenReRoll + 1));
-            haveToReRoll = true;
             return 100;
         }
         //END FLAMING SUN FLASH CASE HANDLING
-     */
+
 
 
 
