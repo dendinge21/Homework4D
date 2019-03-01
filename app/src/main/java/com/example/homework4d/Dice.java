@@ -58,7 +58,10 @@ public class Dice {
             case 2:
                 return "Moons";
             case 3:
-                return "Triangles";
+                if(this.dieID == 3)
+                    return "Flaming Sun";
+                else
+                    return "Triangles";
             case 4:
                 return "Bolts";
             case 5:
