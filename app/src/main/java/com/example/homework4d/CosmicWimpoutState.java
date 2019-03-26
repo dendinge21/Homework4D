@@ -462,4 +462,19 @@ public class CosmicWimpoutState {
     public int getWhoseTurn(){
         return this.whoseTurn;
     }
+
+    public int getTurnScore() { return this.turnScore; }
+
+    public Dice[] getDiceArray(){
+        return this.diceArray;
+    }
+
+    public int getDiceState(int diceId){
+        return this.diceArray[diceId].dieState;
+    }
+
+    public void setDiceState(int diceState, int diceId){
+        this.diceArray[diceId].dieState = diceState;
+    }
+
 }

@@ -65,6 +65,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         /*get whose turn it is now cause they could of wimped out, if the player wimped out
         * then it will switch to the next player's turn*/
         int nowWhoRolls = firstInstance.getWhoseTurn();
+
         //that player rolls all the die
         firstInstance.rollAllDice(nowWhoRolls);
         //edit append text to show what they rolled
@@ -93,7 +94,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //create another instance of the game state and another copy
         CosmicWimpoutState thirdInstance = new CosmicWimpoutState();
         CosmicWimpoutState fourthInstance = new CosmicWimpoutState(thirdInstance);
-        
+
         //show that the copies are the same
         edit.append("Second Instance: " + secondInstance.toString() + " ");
         edit.append("Fourth Instance: " + fourthInstance.toString() + " ");
